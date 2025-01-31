@@ -1,0 +1,48 @@
+/* Estilos para la navbar */
+.navbar {
+    background: transparent;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 0;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: top 0.3s ease-in-out; /* 🔥 Suaviza el autohide */
+    z-index: 1000;
+}
+
+/* 🔥 Oculta la navbar al hacer scroll hacia abajo */
+.hidden-navbar {
+    top: -100px;
+}
+
+/* Estilos para el logo en la navbar */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333; /* Gris oscuro */
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.navbar-brand img {
+    height: 90px; /* Ajusta el tamaño del logo */
+    width: auto;
+}
+
+/* Estilos para los enlaces de navegación */
+.nav-link {
+    margin: 0 15px;
+    font-size: 1.2rem;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #333; /* Gris más oscuro en hover */
+    transform: scale(1.2);
+}

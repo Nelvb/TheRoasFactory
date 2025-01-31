@@ -1,0 +1,272 @@
+/* Estilos generales */
+.agencia-container {
+    color: whitesmoke;
+    padding: 40px 20px;
+    padding-bottom: 120px;
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 1200px;
+
+    /* Centrado */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: auto;
+
+    /* Ajuste de altura para permitir scroll completo */
+    height: auto;
+    max-height: calc(100vh - 50px);
+
+    /* Scroll interno */
+    overflow-y: auto;
+}
+
+/* Ocultar la barra de scroll en navegadores basados en Webkit */
+.agencia-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Sección de contenido principal */
+.content {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 60px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 120px auto;
+    text-align: center;
+}
+
+/* Títulos y texto */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 40px;
+    text-align: center;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+/* Sección Lo Que Valoramos (Slider) */
+.values-section {
+    max-width: 1200px;
+    margin: 0 auto; /* Centra la sección horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos internos */
+    justify-content: center;
+}
+
+
+/* Slider principal */
+.values-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1100px; /* Antes 100% */
+    height: 450px;
+    margin-top: 20px;
+}
+
+
+/* Flechas de navegación */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7); /* Color de fondo ajustado */
+    padding: 15px 20px; /* Aumentamos padding */
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 10; /* Asegura que estén sobre el contenido */
+}
+
+.slider-arrow:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Flecha izquierda */
+.slider-arrow.left {
+    left: 20px; /* Ajustamos la posición dentro del slider */
+}
+
+/* Flecha derecha */
+.slider-arrow.right {
+    right: 20px; /* Ajustamos la posición dentro del slider */
+}
+
+
+/* Contenedor de los valores */
+.value-content {
+    width: 100%;
+    max-width: 1100px;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .value-content {
+        flex-direction: column;
+    }
+
+    .value-left, .value-right {
+        width: 100%;
+    }
+}
+
+/* Mitad izquierda con la imagen */
+.value-left {
+    width: 50%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Mitad derecha con el texto */
+.value-right {
+    width: 50%;
+    background: linear-gradient(180deg, rgb(160, 210, 212) 0%, rgb(166 190 191) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    text-align: left;
+}
+
+.value-right h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.value-right p {
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+/* 🔹 Dots de navegación */
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: white;
+}
+
+
+/* Sección de enfoque */
+.approach {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+/* Sección de partners */
+.partners {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.partners-logos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Sección de equipo */
+.team {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.team-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.team-card {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+}
+
+.team-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.team-card h3 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: whitesmoke;
+}
+
+.team-card p {
+    font-size: 1rem;
+    color: #000;
+}
+
+/* Hover en cards */
+.team-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+}

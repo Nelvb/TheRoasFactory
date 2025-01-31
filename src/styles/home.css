@@ -1,0 +1,173 @@
+/* Estilos Generales */
+.home-container {
+    color: whitesmoke;
+    padding: 40px 20px;
+    padding-bottom: 120px;
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 1200px;
+
+    /* Centrado */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Asegura que el contenido comience desde arriba */
+    align-items: center;
+    margin: auto;
+
+    /* Ajuste de altura para permitir scroll completo */
+    height: auto;
+    max-height: calc(100vh - 50px);
+
+    /* Scroll interno */
+    overflow-y: auto;
+}
+
+/* Ocultar la barra de scroll en navegadores basados en Webkit */
+.home-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Carrusel en el fondo */
+.carousel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ocupa toda la pantalla */
+    overflow: hidden;
+    z-index: -1; /* Detrás del contenido */
+}
+
+.carousel-track {
+    display: flex;
+    width: 200%; /* Doble del tamaño para efecto loop */
+    animation: scroll 25s linear infinite;
+}
+
+.carousel img {
+    width: 20%; /* Ocupa un 20% del carrusel */
+    height: 100vh;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+/* Animación del carrusel */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); } /* Se mueve la mitad del contenedor */
+}
+
+/* Sección de contenido sobre el carrusel */
+.content {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+    padding: 60px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 120px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #e0e0e0; 
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 40px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+/* Cards debajo del primer section */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 0;
+}
+
+.card {
+    width: 280px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: rgb(255, 255, 255);
+}
+
+.card p {
+    font-size: 1rem;
+    color: #000000;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Secciones de contenido */
+.about, .services, .approach {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.about p,
+.services p,
+.approach p {
+    color: #000; /* 🔥 Párrafos en negro */
+}
+
+/* Lista con íconos */
+.approach ul {
+    list-style: none;
+    padding: 0;
+}
+
+.approach li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #000000;
+    position: relative;
+}
+
+.approach li::before {
+    content: "✔";
+    color: limegreen;
+    font-weight: bold;
+    margin-right: 10px;
+}
