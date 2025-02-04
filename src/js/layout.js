@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react"; // Importa useState
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
@@ -16,20 +16,23 @@ import { Footer } from "./component/footer";
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
+	const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+
 	return (
 		<div className="app-container">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar /> {/* La navbar se mantiene fuera de content-container */}
-						<Routes>
-						<Route path="/" element={<Home />} />
-							<Route path="/agencia" element={<Agencia />} />
-							<Route path="/servicios" element={<Servicios />} />
-							<Route path="/blog" element={<Blog />} />
-							<Route path="/contactanos" element={<Contactanos />} />
-							<Route path="*" element={<h1>Not found!</h1>} />
-						</Routes>
-						<Footer />
+					<Navbar isVisible={isNavbarVisible} />
+					<Routes>
+						<Route path="/" element={<Home onScroll={setIsNavbarVisible} />} />
+						<Route path="/agencia" element={<Agencia onScroll={setIsNavbarVisible} />} />
+						<Route path="/servicios" element={<Servicios onScroll={setIsNavbarVisible} />} />
+						<Route path="/blog" element={<Blog onScroll={setIsNavbarVisible} />} />
+						<Route path="/contactanos" element={<Contactanos onScroll={setIsNavbarVisible} />} />
+						<Route path="*" element={<h1>Not found!</h1>} />
+					</Routes>
+
+					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>

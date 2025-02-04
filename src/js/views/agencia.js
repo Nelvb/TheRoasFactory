@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "../../styles/agencia.css";
+import useNavbarScroll from "../../js/component/useNavbarScroll";
+
 
 const valores = [
     {
@@ -29,22 +31,11 @@ const valores = [
 ];
 
 
-export const Agencia = () => {
+export const Agencia = ({ onScroll }) => {
     const agenciaRef = useRef(null);
-
-    useEffect(() => {
-        const handleGlobalScroll = (event) => {
-            if (agenciaRef.current) {
-                agenciaRef.current.scrollTop += event.deltaY;
-            }
-        };
-
-        window.addEventListener("wheel", handleGlobalScroll);
-        return () => window.removeEventListener("wheel", handleGlobalScroll);
-    }, []);
+    useNavbarScroll(onScroll, agenciaRef);
 
     const [currentIndex, setCurrentIndex] = useState(0);
-
 
     const nextSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % valores.length);
@@ -56,16 +47,13 @@ export const Agencia = () => {
 
 
     return (
-        <div className="agencia-container" ref={agenciaRef}>
-            <section className="content">
-                <h1>Nuestra Agencia</h1>
-                <p>
-                    Nuestra agencia combina innovación, estrategia digital y creatividad
-                    para ayudar a marcas a alcanzar su máximo potencial. Trabajamos con
-                    visión de futuro, aplicando soluciones basadas en datos y creatividad
-                    para generar un impacto duradero.
-                </p>
-            </section>
+        <div className="main-container" ref={agenciaRef}>
+           <section className="content">
+    <h1>Impulsamos tu crecimiento, juntos</h1>
+    <p>
+    Creemos en el poder de las personas y en las relaciones que construimos. La tecnología y la creatividad son herramientas poderosas, pero son las personas las que marcan la diferencia. Juntos, construiremos un futuro digital que no solo impulse su marca, sino que también genere un impacto real y duradero en su sector.
+    </p>
+</section>
 
             <section className="values-section container">
                 <h2 className="text-center">Nuestros valores</h2>
@@ -80,24 +68,24 @@ export const Agencia = () => {
                             <p>{valores[currentIndex].description}</p>
                         </div>
                     </div>
-                    {/* 🔹 Botones personalizados */}
-                    <div className="button">
-                        <button className="prev" onClick={prevSlide}>
-                            <i className="bx bx-chevron-left"></i>
-                        </button>
-                        <button className="next" onClick={nextSlide}>
-                            <i className="bx bx-chevron-right"></i>
-                        </button>
-                    </div>
                 </div>
-                <div className="slider-dots">
-                    {valores.map((_, index) => (
-                        <span
-                            key={index}
-                            className={`dot ${currentIndex === index ? "active" : ""}`}
-                            onClick={() => setCurrentIndex(index)}
-                        ></span>
-                    ))}
+
+                <div className="slider-controls">
+                    <button className="prev" onClick={prevSlide}>
+                        <i className="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div className="slider-dots">
+                        {valores.map((_, index) => (
+                            <span
+                                key={index}
+                                className={`dot ${currentIndex === index ? "active" : ""}`}
+                                onClick={() => setCurrentIndex(index)}
+                            ></span>
+                        ))}
+                    </div>
+                    <button className="next" onClick={nextSlide}>
+                        <i className="fa-solid fa-chevron-right"></i>
+                    </button>
                 </div>
             </section>
 
@@ -106,32 +94,46 @@ export const Agencia = () => {
             <section className="approach">
                 <h2>Nuestro Enfoque</h2>
                 <p>
-                    Diseñamos estrategias digitales centradas en la experiencia del usuario,
-                    combinando creatividad, análisis de datos y marketing de alto impacto.
-                    Nuestro trabajo no solo impulsa marcas, sino que transforma industrias.
-                </p>
+                Nos tomamos el tiempo de comprender a fondo tus necesidades y las de tu audiencia. 
+        Cada estrategia está diseñada para aportar valor real y conectar con las personas 
+        adecuadas en el momento preciso. Más que soluciones digitales, creamos experiencias 
+        que impulsan resultados sostenibles.               
+         </p>
             </section>
 
             {/* Sección de Partners */}
             <section className="partners">
-                <h2>Colaboramos con Grandes Marcas</h2>
-                <p>Trabajamos con empresas líderes en diversos sectores, creando estrategias efectivas.</p>
-                <div className="partners-logos">
-                    {/* Aquí irían los logos de partners */}
-                </div>
+            <h2>Alianzas que transforman</h2>
+    <p>
+        Creemos en el poder de las alianzas estratégicas. Al conectar diferentes capacidades y fomentar 
+        la colaboración, construimos redes que impulsan la innovación y el crecimiento. Nos enorgullece 
+        trabajar con partners que amplifican nuestro impacto, compartiendo la visión de un futuro digital 
+        más sólido y conectado.
+    </p>
             </section>
 
             {/* Sección de Equipo */}
             <section className="team">
-                <h2>Nuestro Equipo</h2>
-                <p>
-                    Un equipo de expertos con más de una década de experiencia en publicidad y marketing digital,
-                    liderando estrategias para algunas de las marcas más influyentes.
-                </p>
-                <div className="team-cards">
-                    {/* Espacio para imágenes del equipo */}
-                </div>
+            <h2>Conoce a nuestro equipo</h2>
+    <p>
+        Nuestro equipo combina experiencia en estrategia, marketing y tecnología para crear 
+        soluciones digitales que priorizan a las personas y generan impacto real. Trabajamos 
+        con una mentalidad innovadora y un enfoque centrado en los detalles para diseñar 
+        experiencias que marcan la diferencia.
+    </p>
             </section>
+
+ {/* CTA */}
+<section className="cta">
+    <h2>¿Listo para dar el siguiente paso?</h2>
+    <p>
+    Nos encantaría conocer tu proyecto y explorar juntos cómo llevarlo al siguiente nivel.  
+    Si tienes una idea en mente o simplemente quieres charlar sobre nuevas oportunidades,  
+    estamos aquí para escucharte.
+</p>
+<a href="/contactanos" className="cta-button">Hablemos</a>
+</section>
+
         </div>
     );
 };

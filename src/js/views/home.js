@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import "../../styles/home.css";
+import useNavbarScroll from "../../js/component/useNavbarScroll";
 
 const imageUrl = "https://res.cloudinary.com/dgyz3ge7g/image/upload/f_webp/v1738192060/a75edptlm4rfflbso0b6.jpg";
 
@@ -29,22 +30,13 @@ const cardData = [
     { title: "Medición de Impacto", description: "Analiza el rendimiento con métricas clave y dashboards inteligentes que impulsan la toma de decisiones." }
 ];
 
-export const Home = () => {
+export const Home = ({ onScroll }) => {
     const homeRef = useRef(null);
 
-    useEffect(() => {
-        const handleGlobalScroll = (event) => {
-            if (homeRef.current) {
-                homeRef.current.scrollTop += event.deltaY;
-            }
-        };
-
-        window.addEventListener("wheel", handleGlobalScroll);
-        return () => window.removeEventListener("wheel", handleGlobalScroll);
-    }, []);
+    useNavbarScroll(onScroll, homeRef);
 
     return (
-        <div className="home-container" ref={homeRef}>
+        <div className="main-container" ref={homeRef}>
             <section className="content">
                 <h1>La Era de la Realización Digital ha Llegado</h1>
                 <p>
@@ -97,12 +89,14 @@ export const Home = () => {
             </section>
 
             <section className="services">
-                <h2>Servicios Digitales</h2>
-                <p>
-                    Diseñamos experiencias omnicanal impactantes, optimizamos plataformas tecnológicas y creamos estrategias
-                    innovadoras para maximizar el crecimiento y el valor de tu negocio en un entorno digital en constante evolución.
-                </p>
-            </section>
+    <h2>Servicios Digitales</h2>
+    <p>
+        Diseñamos experiencias omnicanal impactantes, optimizamos plataformas tecnológicas y creamos estrategias
+        innovadoras para maximizar el crecimiento y el valor de tu negocio en un entorno digital en constante evolución.
+    </p>
+    <a href="/servicios" className="cta-button">Descubre más</a>
+</section>
+
 
             <section className="approach">
                 <h2>Nuestro Enfoque</h2>

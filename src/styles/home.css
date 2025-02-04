@@ -1,32 +1,3 @@
-/* Estilos Generales */
-.home-container {
-    color: whitesmoke;
-    padding: 40px 20px;
-    padding-bottom: 120px;
-    position: relative;
-    z-index: 1;
-    width: 90%;
-    max-width: 1200px;
-
-    /* Centrado */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Asegura que el contenido comience desde arriba */
-    align-items: center;
-    margin: auto;
-
-    /* Ajuste de altura para permitir scroll completo */
-    height: auto;
-    max-height: calc(100vh - 50px);
-
-    /* Scroll interno */
-    overflow-y: auto;
-}
-
-/* Ocultar la barra de scroll en navegadores basados en Webkit */
-.home-container::-webkit-scrollbar {
-    display: none;
-}
 
 
 /* Carrusel en el fondo */
@@ -59,40 +30,7 @@
     100% { transform: translateX(-100%); } /* Se mueve la mitad del contenedor */
 }
 
-/* Sección de contenido sobre el carrusel */
-.content {
-    position: relative;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
-    padding: 60px;
-    border-radius: 12px;
-    max-width: 900px;
-    margin: 120px auto;
-    text-align: center;
-}
 
-h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.content p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #e0e0e0; 
-}
-
-h2 {
-    font-size: 2rem;
-    margin-top: 40px;
-}
-
-p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #e0e0e0;
-}
 
 /* Cards debajo del primer section */
 .card-container {
