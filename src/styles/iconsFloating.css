@@ -1,0 +1,35 @@
+.floating-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+.floating-icon {
+    position: absolute;
+    font-size: 3rem; /* Ajusta el tamaño del icono */
+    color: #ffffff; /* Hace que los iconos sean blancos */
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8); /* Efecto de brillo */
+    transition: transform 0.3s ease-in-out, opacity 0.3s;
+    
+    /* ✅ Mantiene los iconos centrados sin afectar la animación */
+    transform: translate(-50%, -50%);
+    
+    /* ✅ Nueva animación flotante */
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translate(-50%, -50%) translateY(0px); }
+    50% { transform: translate(-50%, -50%) translateY(-10px); }
+    100% { transform: translate(-50%, -50%) translateY(0px); }
+}
+
+@media (max-width: 768px) {
+    .floating-icon {
+        font-size: 1.5rem; /* Ajusta el tamaño del icono */
+    }
+   
+}
