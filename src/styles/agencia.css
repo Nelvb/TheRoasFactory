@@ -64,15 +64,26 @@
 }
 
 .slider-controls {
+    position: relative;
     display: flex;
+    justify-content: center; /* Centra los dots */
     align-items: center;
-    justify-content: space-between;
     width: 100%;
     max-width: 1100px;
     margin-top: 20px;
     padding-bottom: 40px;
-    position: relative;
 }
+
+.slider-controls .prev {
+    position: absolute;
+    left: 0; /* Pega la flecha izquierda al extremo */
+}
+
+.slider-controls .next {
+    position: absolute;
+    right: 0; /* Pega la flecha derecha al extremo */
+}
+
 
 .slider-controls button {
     background: rgb(166 190 191);

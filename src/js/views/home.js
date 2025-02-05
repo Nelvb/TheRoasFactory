@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Helmet } from "react-helmet";
 import "../../styles/home.css";
 import useNavbarScroll from "../../js/component/useNavbarScroll";
 
@@ -32,11 +33,22 @@ const cardData = [
 
 export const Home = ({ onScroll }) => {
     const homeRef = useRef(null);
-
     useNavbarScroll(onScroll, homeRef);
 
     return (
         <div className="main-container" ref={homeRef}>
+            <Helmet>
+                <title>Agencia de Publicidad y Marketing Digital en Madrid | The Roas Factory</title>
+                <meta name="description" content="Expertos en publicidad, marketing digital, SEO y estrategias online en Madrid y toda España. Descubre cómo potenciar tu negocio con nosotros." />
+                <meta name="keywords" content="agencia de publicidad en Madrid, marketing digital, SEO, diseño web, branding, redes sociales, email marketing, estrategias digitales, posicionamiento web, consultoría SEO, optimización digital, campañas publicitarias, publicidad online" />
+                <meta name="author" content="The Roas Factory" />
+                <meta property="og:title" content="The Roas Factory - Marketing Digital y Publicidad en Madrid" />
+                <meta property="og:description" content="Especialistas en publicidad, marketing digital, SEO y estrategias online. Potenciamos marcas con innovación y creatividad." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://tu-sitio.com" />
+                <meta property="og:image" content="https://tu-sitio.com/logo.png" />
+            </Helmet>
+
             <section className="content">
                 <h1>La Era de la Realización Digital ha Llegado</h1>
                 <p>
@@ -46,34 +58,31 @@ export const Home = ({ onScroll }) => {
                 </p>
             </section>
 
-           {/* Carrusel automático e infinito */}
-           <div className="carousel">
+            <div className="carousel">
                 <div className="carousel-track">
                     {Array(10).fill(imageUrl).map((url, index) => (
                         <img
                             key={index}
                             src={url}
-                            srcSet={`${url} 1x, ${url.replace("f_webp", "q_auto:best")} 2x`}
-                            alt={`Imagen ${index + 1}`}
+                            loading="lazy"
+                            alt="Publicidad y marketing digital en Madrid"
                         />
                     ))}
                 </div>
             </div>
 
-
-            {/* Sección de Cards Destacadas */}
             <section className="card-container">
                 {cardData.map((card, index) => (
                     <div className="card" key={index}>
-                        <img src={cardImages[index] || ""} alt={card.title} />
+                        <img src={cardImages[index] || ""} alt={card.title} loading="lazy" />
                         <h3>{card.title}</h3>
                         <p>{card.description}</p>
                     </div>
                 ))}
             </section>
 
-            {/* Contenido Principal */}
-            <section className="about">
+  {/* Contenido Principal */}
+  <section className="about">
                 <h2>Quiénes Somos</h2>
                 <p>
                     Somos una consultora digital que te ayuda a innovar con intención, creando productos digitales,
@@ -88,15 +97,12 @@ export const Home = ({ onScroll }) => {
                 </p>
             </section>
 
-            <section className="services">
-    <h2>Servicios Digitales</h2>
-    <p>
-        Diseñamos experiencias omnicanal impactantes, optimizamos plataformas tecnológicas y creamos estrategias
-        innovadoras para maximizar el crecimiento y el valor de tu negocio en un entorno digital en constante evolución.
-    </p>
-    <a href="/servicios" className="cta-button">Descubre más</a>
-</section>
 
+            <section className="services">
+                <h2>Servicios Digitales</h2>
+                <p>Diseñamos experiencias omnicanal impactantes, optimizamos plataformas tecnológicas y creamos estrategias innovadoras.</p>
+                <a href="/servicios" className="cta-button">Descubre más</a>
+            </section>
 
             <section className="approach">
                 <h2>Nuestro Enfoque</h2>
