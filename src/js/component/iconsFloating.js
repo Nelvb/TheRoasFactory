@@ -17,7 +17,7 @@ const icons = [
     { class: "fa-solid fa-bullseye", top: "80%", left: "8%" },
     { class: "fa-solid fa-laptop", top: "87%", left: "32%" },
     { class: "fa-solid fa-cart-shopping", top: "81%", left: "62%" },
-    { class: "fa-solid fa-user-large", top: "90%", left: "50%" },
+    { class: "fa-solid fa-user-large", top: "95%", left: "50%" },
 
     { class: "fa-solid fa-cloud-arrow-up", top: "46%", left: "53%" },
     { class: "fa-solid fa-cart-plus", top: "41%", left: "75%" },

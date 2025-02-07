@@ -9,15 +9,15 @@
 
 .floating-icon {
     position: absolute;
-    font-size: 3rem; /* Ajusta el tamaño del icono */
-    color: #ffffff; /* Hace que los iconos sean blancos */
-    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8); /* Efecto de brillo */
+    font-size: 3rem; 
+    color: rgb(160, 210, 212); 
+    text-shadow: 0px 0px 10px rgba(160, 210, 212, 1); 
     transition: transform 0.3s ease-in-out, opacity 0.3s;
     
-    /* ✅ Mantiene los iconos centrados sin afectar la animación */
+    /* Mantiene los iconos centrados sin afectar la animación */
     transform: translate(-50%, -50%);
     
-    /* ✅ Nueva animación flotante */
+    /* Animación flotante */
     animation: float 3s ease-in-out infinite;
 }
 
@@ -29,7 +29,7 @@
 
 @media (max-width: 768px) {
     .floating-icon {
-        font-size: 1.5rem; /* Ajusta el tamaño del icono */
+        font-size: 1.5rem;
     }
    
 }

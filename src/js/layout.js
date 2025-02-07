@@ -6,6 +6,7 @@ import { Home } from "./views/home";
 import { Agencia } from "./views/agencia";
 import { Servicios } from "./views/servicios";
 import { Blog } from "./views/blog";
+import { BlogPost } from "./views/blogPost";
 import { Contactanos } from "./views/contactanos";
 import injectContext from "./store/appContext";
 
@@ -14,7 +15,7 @@ import { Footer } from "./component/footer";
 
 
 const Layout = () => {
-	const basename = process.env.BASENAME || "";
+	const basename = process.env.NODE_ENV === "production" ? process.env.BASENAME || "" : "";
 
 	const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
@@ -28,6 +29,7 @@ const Layout = () => {
 						<Route path="/agencia" element={<Agencia onScroll={setIsNavbarVisible} />} />
 						<Route path="/servicios" element={<Servicios onScroll={setIsNavbarVisible} />} />
 						<Route path="/blog" element={<Blog onScroll={setIsNavbarVisible} />} />
+						<Route path="/blog/:slug" element={<BlogPost />} />
 						<Route path="/contactanos" element={<Contactanos onScroll={setIsNavbarVisible} />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
