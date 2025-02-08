@@ -28,7 +28,7 @@ export const Blog = ({ onScroll }) => {
     }, []);
 
     return (
-        <div className="main-container" ref={blogRef}>
+        <div className="main-container-blog" ref={blogRef}>
             <Helmet>
                 <title>Blog de Marketing y Comunicación | The Roas Factory</title>
                 <meta name="description" content="Lee artículos sobre marketing digital, branding, publicidad y estrategias innovadoras. Mantente al día con las últimas tendencias." />
@@ -40,26 +40,27 @@ export const Blog = ({ onScroll }) => {
             </section>
 
             <div className="blog-container">
-                {loading ? (
-                    <p className="loading">Cargando artículos...</p>
-                ) : (
-                    posts.map((post) => (
-                        <div key={post.id} className="blog-post">
-                            <Link to={`/blog/${post.slug}`}>
-                                {post.image && <img src={post.image} alt={post.title} className="blog-image" />}
-                                <h3>{post.title}</h3>
-                            </Link>
-                            <p className="post-info">
-                                {new Date(post.date).toLocaleDateString()} - {post.author}
-                            </p>
-                            <p className="post-excerpt">{post.excerpt}</p>
-                            <Link to={`/blog/${post.slug}`} className="read-more">
-                                Leer más
-                            </Link>
-                        </div>
-                    ))
-                )}
+    {loading ? (
+        <p className="loading">Cargando artículos...</p>
+    ) : (
+        posts.map((post) => (
+            <div className="blog-post">
+            <img src={post.image} alt={post.title} className="blog-image" />
+            <div className="content-container">
+                <h3>{post.title}</h3>
+                <p>{post.excerpt}</p>
             </div>
+            <div className="button-container">
+                <Link to={`/blog/${post.slug}`} className="read-more">
+                    Leer más
+                </Link>
+            </div>
+        </div>
+        
+        ))
+    )}
+</div>
+
         </div>
     );
 };

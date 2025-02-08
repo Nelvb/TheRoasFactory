@@ -1,54 +1,90 @@
+/* Estilos Generales */
+.main-container-blog {
+    color: whitesmoke;
+    padding: 40px 20px;
+    padding-bottom: 120px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    margin: auto;
+    height: auto;
+    max-height: calc(100vh - 50px);
+    overflow-y: auto;
+}
+
+/* Ocultar la barra de scroll en navegadores basados en Webkit */
+.main-container-blog::-webkit-scrollbar {
+    display: none;
+}
 .blog-container {
-    max-width: 800px;
-    margin: 0 auto;
+    position: relative;
     padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    width: 100%;
 }
 
 .blog-post {
-    border-bottom: 1px solid #ddd;
-    padding: 15px 0;
+    overflow: hidden;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.blog-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.content-container {
+    flex-grow: 1; /* Esto permite que la parte de contenido ocupe el espacio disponible */
 }
 
 .blog-post h3 {
     font-size: 1.5rem;
+    margin-top: 15px;
 }
 
-.blog-post a {
-    text-decoration: none;
-    color: #007bff;
+.blog-post p {
+    font-size: 1rem;
+    color: #000000;
 }
 
-.blog-post a:hover {
-    text-decoration: underline;
+.button-container {
+    margin-top: auto; /* El botón siempre estará al final */
+    text-align: left;
 }
 
 .read-more {
     display: inline-block;
-    margin-top: 10px;
-    color: #28a745;
+    background-color: rgb(160, 210, 212);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
 }
 
-.blog-article {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+.read-more:hover {
+    background-color: rgb(233, 121, 124);
+    color: white;
+    transform: scale(1.1);
 }
 
-.blog-content {
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.blog-image-full {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    margin-bottom: 20px;
-}
-
-.back-link {
-    display: block;
-    margin-top: 20px;
-    font-size: 1rem;
-    color: #007bff;
+@media (max-width: 768px) {
+    .blog-container {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
 }
