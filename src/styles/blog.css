@@ -17,6 +17,7 @@
     overflow-y: auto;
 }
 
+
 /* Ocultar la barra de scroll en navegadores basados en Webkit */
 .main-container-blog::-webkit-scrollbar {
     display: none;
@@ -38,7 +39,15 @@
     justify-content: flex-start;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 15px;
 }
+
+.blog-article .blog-content {
+    text-align: justify;
+    text-justify: inter-word; 
+}
+
 
 .blog-image {
     width: 100%;
@@ -49,6 +58,14 @@
 .content-container {
     flex-grow: 1; /* Esto permite que la parte de contenido ocupe el espacio disponible */
 }
+
+.blog-image-full {
+    width: 100%;  
+    height: auto; 
+    object-fit: cover;  
+    margin-bottom: 20px;  
+}
+
 
 .blog-post h3 {
     font-size: 1.5rem;
@@ -61,8 +78,21 @@
 }
 
 .button-container {
-    margin-top: auto; /* El botón siempre estará al final */
+    margin-top: auto; 
     text-align: left;
+}
+
+.blog-post p {
+    text-align: justify; 
+    text-justify: inter-word;
+}
+
+.blog-article {
+    position: relative;
+    z-index: 1;
+    margin: 120px auto;
+    text-align: center;
+
 }
 
 .read-more {
@@ -75,6 +105,7 @@
     border-radius: 8px;
     text-decoration: none;
     transition: background 0.3s ease-in-out;
+    width: auto;
 }
 
 .read-more:hover {
@@ -82,6 +113,49 @@
     color: white;
     transform: scale(1.1);
 }
+
+.back-button {
+    display: inline-block;
+    background-color: rgb(160, 210, 212);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.back-button:hover {
+    background-color: rgb(233, 121, 124);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Estilo para el contenedor de carga */
+.loading-container {
+    opacity: 0;
+    animation: fadeIn 1s forwards; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;  
+}
+
+/* Definir la animación fade-in */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.loading {
+    font-size: 1.5rem;  
+}
+
 
 @media (max-width: 768px) {
     .blog-container {

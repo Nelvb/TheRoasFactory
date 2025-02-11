@@ -181,14 +181,15 @@ export const Servicios = ({ onScroll }) => {
             <h2>{servicio.title}</h2>
             <p><strong>{servicio.description}</strong></p>
             <Carousel images={servicio.images} />
+            
             <ul className="row row-cols-1 row-cols-md-2 g-3 px-3">
               {servicio.points.map((point, idx) => (
-                <li className="d-flex align-items-start">
+                <li key={`${servicio.title}-${idx}`} className="d-flex align-items-start">
                   <span className="text-start">{point}</span>
                 </li>
-
               ))}
             </ul>
+
           </section>
         ))}
       </div>
