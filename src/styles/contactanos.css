@@ -1,10 +1,15 @@
-
+.contact-container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
 
 /* 🔹 Formulario de contacto */
 .contact-form {
     display: flex;
     flex-direction: column;
     background: transparent;
+    margin-top: 40px;
+    margin-bottom: 40px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -42,9 +47,9 @@
     background: #e0484d;
 }
 
-/* 🔹 Sección de WhatsApp */
+/* Sección de WhatsApp */
 .contact-options {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .contact-options h2 {
@@ -72,12 +77,8 @@
     background: #1EBE57;
 }
 
-/* 🔹 Responsivo */
+/* Medias */
 @media (max-width: 768px) {
-    .main-container {
-        padding: 15px;
-    }
-
     .contact-form {
         padding: 15px;
     }

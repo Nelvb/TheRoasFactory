@@ -1,17 +1,18 @@
 /* Contenedor del carrusel */
 .carousel-container {
-    width: 50%;
-    height: 250px; /* Ajusta la altura según se necesite */
+    width: 100%;
+    max-width: 500px; /* Controla el tamaño máximo en pantallas grandes */
+    height: 280px; /* Altura fija para todas las imágenes */
     overflow: hidden;
     position: relative;
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 10px;
 }
 
 /* Imagen dentro del carrusel */
 .carousel-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Para que llene el espacio sin deformarse */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
 }
 
 /* Contenedor general del carrusel + dots */
@@ -68,4 +69,9 @@
     margin-right: 10px;
 }
 
-  
+@media (max-width: 768px) {
+    .carousel-container {
+        max-width: 100%; /* Ocupará todo el ancho disponible */
+        height: 230px; /* Reduce la altura en móviles */
+    }
+}

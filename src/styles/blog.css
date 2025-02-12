@@ -1,15 +1,14 @@
 /* Estilos Generales */
 .main-container-blog {
     color: whitesmoke;
-    padding: 40px 20px;
-    padding-bottom: 120px;
+    padding-bottom: 280px;
     position: relative;
     z-index: 1;
     width: 100%;
     max-width: 1500px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: center;
     margin: auto;
     height: auto;
@@ -25,6 +24,7 @@
 .blog-container {
     position: relative;
     padding: 20px;
+    margin-top: 40px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
@@ -90,7 +90,7 @@
 .blog-article {
     position: relative;
     z-index: 1;
-    margin: 120px auto;
+    margin: 140px auto;
     text-align: center;
 
 }

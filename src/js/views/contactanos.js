@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet";
 import { IconsFloating } from "../../js/component/iconsFloating";
 import "../../styles/contactanos.css";
 import useNavbarScroll from "../../js/component/useNavbarScroll";
+import emailjs from "emailjs-com";
+import CustomAlert from "../../js/component/customAlert";
 
 export const Contactanos = ({ onScroll }) => {
     const contactRef = useRef(null);
@@ -11,9 +13,11 @@ export const Contactanos = ({ onScroll }) => {
     const [formData, setFormData] = useState({
         nombre: "",
         email: "",
+        telefono: "",
         asunto: "",
         mensaje: "",
     });
+    const [alert, setAlert] = useState({ show: false, message: "", type: "success" });
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,42 +25,36 @@ export const Contactanos = ({ onScroll }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("Formulario enviado con éxito");
-        // Aquí puedes agregar lógica para enviar los datos a un backend o a un servicio de email.
+        
+        if (!formData.nombre || !formData.email || !formData.telefono || !formData.asunto || !formData.mensaje) {
+            setAlert({ show: true, message: "Todos los campos son obligatorios", type: "error" });
+            return;
+        }
+
+        emailjs.sendForm(
+            "service_xn5h3pb", // Reemplazar con tu ID de servicio
+            "template_q589ayq", // Reemplazar con tu ID de plantilla
+            e.target,
+            "HxsrmZcKRK5mPtoVp" // Reemplazar con tu public key
+        )
+        .then(() => {
+            setAlert({ show: true, message: "Mensaje enviado con éxito", type: "success" });
+            setFormData({ nombre: "", email: "", telefono: "", asunto: "", mensaje: "" });
+        })
+        .catch(() => {
+            setAlert({ show: true, message: "Error al enviar el mensaje. Intenta de nuevo", type: "error" });
+        });
     };
 
-    const whatsappNumber = "34600000000"; // Reemplazar con el número real en formato internacional
+    const whatsappNumber = "34647828838";
 
     return (
         <>
-        {/* 🔹 Iconos flotantes fuera del main-container */}
         <IconsFloating />
         <div className="main-container" ref={contactRef}>
             <Helmet>
                 <title>Contáctanos | The Roas Factory</title>
                 <meta name="description" content="Contacta con The Roas Factory para estrategias de marketing digital, publicidad y branding. Escríbenos por email o WhatsApp y potencia tu marca." />
-                <meta property="og:title" content="Contáctanos | The Roas Factory" />
-                <meta property="og:description" content="Hablemos sobre cómo llevar tu marca al siguiente nivel. Escríbenos por email o WhatsApp." />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://tu-sitio.com/contactanos" />
-                <meta property="og:image" content="https://tu-sitio.com/logo.png" />
-
-                {/* 🔹 Schema Markup JSON-LD para SEO */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "ContactPage",
-                        "name": "Contáctanos",
-                        "description": "Escríbenos para más información sobre marketing digital, publicidad y branding.",
-                        "url": "https://tu-sitio.com/contactanos",
-                        "contactPoint": {
-                            "@type": "ContactPoint",
-                            "telephone": "+34 600000000",
-                            "contactType": "customer service",
-                            "email": "info@tu-sitio.com"
-                        }
-                    })}
-                </script>
             </Helmet>
 
             <section className="content">
@@ -71,6 +69,9 @@ export const Contactanos = ({ onScroll }) => {
 
                     <label htmlFor="email">Email</label>
                     <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+
+                    <label htmlFor="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" value={formData.telefono} onChange={handleChange} required />
 
                     <label htmlFor="asunto">Asunto</label>
                     <input type="text" id="asunto" name="asunto" value={formData.asunto} onChange={handleChange} required />
@@ -90,6 +91,8 @@ export const Contactanos = ({ onScroll }) => {
                 </div>
             </div>
         </div>
+
+        {alert.show && <CustomAlert message={alert.message} type={alert.type} onClose={() => setAlert({ show: false })} />}
         </>
     );
 };

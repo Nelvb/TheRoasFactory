@@ -28,8 +28,8 @@ const Layout = () => {
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
     return (
-        <div className="app-container">
-            <BrowserRouter basename={basename}>
+        <BrowserRouter basename={basename}>
+            <div className="app-container">
                 <NavbarController setIsNavbarVisible={setIsNavbarVisible} />
                 <ScrollToTop>
                     <Navbar isVisible={isNavbarVisible} />
@@ -42,10 +42,12 @@ const Layout = () => {
                         <Route path="/contactanos" element={<Contactanos onScroll={setIsNavbarVisible} />} />
                         <Route path="*" element={<h1>Not found!</h1>} />
                     </Routes>
-                    <Footer />
                 </ScrollToTop>
-            </BrowserRouter>
-        </div>
+            </div>
+            
+            {/* 🔥 Footer FUERA de app-container */}
+            <Footer />
+        </BrowserRouter>
     );
 };
 

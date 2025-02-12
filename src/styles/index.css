@@ -12,15 +12,14 @@
 /* Estilos Generales */
 .main-container {
     color: whitesmoke;
-    padding: 40px 20px;
-    padding-bottom: 120px;
+    padding-bottom: 280px;
     position: relative;
     z-index: 1;
     width: 90%;
     max-width: 1200px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: center;
     margin: auto;
     height: auto;
@@ -37,11 +36,13 @@
 .content {
     position: relative;
     z-index: 1;
-    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+    background: rgba(0, 0, 0, 0.7);
+    /* Fondo oscuro semi-transparente */
     padding: 60px;
     border-radius: 12px;
     max-width: 900px;
     margin: 120px auto;
+    margin-bottom: 80px;
     text-align: center;
 }
 
@@ -54,7 +55,7 @@ h1 {
 .content p {
     font-size: 1.2rem;
     line-height: 1.6;
-    color: #e0e0e0; 
+    color: #e0e0e0;
 }
 
 h2 {
@@ -84,15 +85,31 @@ p {
 
 .cta-button:hover {
     background-color: rgb(233, 121, 124);
-    color: white ;
+    color: white;
     transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
     .content {
-        padding: 30px; /* Reducir el padding en pantallas pequeñas */
-        max-width: 100%; /* Ocupar todo el ancho disponible */
-        margin: 100px auto;
+        padding: 30px;
+        /* Reducir el padding en pantallas pequeñas */
+        max-width: 100%;
+        /* Ocupar todo el ancho disponible */
+        margin: 160px auto;
+        margin-bottom: 50px;
     }
-    
+
+    .main-container {
+        width: 100%;
+        max-width: 1500px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .main-container-blog {
+        width: 100%;
+        max-width: 1500px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
