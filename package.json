@@ -8,24 +8,12 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0 --port 3000",
-		"build": "webpack --config webpack.prod.js",
-		"deploy": "gh-pages -d dist"
-	},
-	"author": {
-		"name": "Alejandro Sanchez",
-		"url": "http://alesanchezr.com/"
-	},
-	"contributors": [
-		{
-			"name": "Alejandro Sanchez",
-			"url": "http://alesanchezr.com/"
-		},
-		{
-			"name": "Ignacio Cordoba",
-			"url": "http://github.com/nachovz"
-		}
-	],
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist",
+  "start": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0 --port 3000",
+  "build": "webpack --config webpack.prod.js"
+},
+
 	"license": "ISC",
 	"devDependencies": {
 		"@babel/cli": "^7.16.0",
