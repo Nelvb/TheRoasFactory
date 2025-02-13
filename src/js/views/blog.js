@@ -15,7 +15,8 @@ export const Blog = ({ onScroll }) => {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const response = await fetch("/posts.json");
+                const response = await fetch("./posts.json");
+
                 const data = await response.json();
                 setPosts(data);
                 setLoading(false);

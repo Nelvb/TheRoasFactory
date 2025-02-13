@@ -8,12 +8,11 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist",
-  "start": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0 --port 3000",
-  "build": "webpack --config webpack.prod.js"
-},
-
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist",
+		"start": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0 --port 3000",
+		"build": "webpack --config webpack.prod.js"
+	},
 	"license": "ISC",
 	"devDependencies": {
 		"@babel/cli": "^7.16.0",
@@ -27,6 +26,7 @@
 		"babel-loader": "^8.2.3",
 		"babel-plugin-transform-class-properties": "^6.24.1",
 		"bc-console": "0.0.2",
+		"copy-webpack-plugin": "^12.0.2",
 		"css-loader": "^6.5.1",
 		"dotenv-webpack": "^7.0.3",
 		"envfile": "^6.17.0",
