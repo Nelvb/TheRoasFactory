@@ -18,7 +18,8 @@ module.exports = merge(common, {
         new CopyWebpackPlugin({
             patterns: [
                 { from: path.resolve(__dirname, 'public', 'posts.json'), to: 'posts.json' }, // Copia el JSON a dist
-                { from: path.resolve(__dirname, 'public', '_redirects'), to: '_redirects' } // Redirección para React Router en GitHub Pages
+                { from: path.resolve(__dirname, 'public', '_redirects'), to: '.' }
+ // Redirección para React Router en GitHub Pages
             ]
         }),
         new Dotenv({
