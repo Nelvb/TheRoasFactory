@@ -6,7 +6,10 @@
     <title>Redireccionando...</title>
     <script>
         var redirectTo = window.location.pathname;
-        window.location.replace("/The_Roas_Factory" + redirectTo);
+        var base = "/The_Roas_Factory"; // Asegurar que solo se concatene una vez
+        if (!redirectTo.startsWith(base)) {
+            window.location.replace(base + redirectTo);
+        }
     </script>
 </head>
 <body>
