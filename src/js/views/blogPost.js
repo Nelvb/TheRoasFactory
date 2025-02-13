@@ -22,9 +22,23 @@ export const BlogPost = ({ onScroll }) => {
 
     const fetchPost = async () => {
       try {
-        const response = await fetch("/posts.json");
+        const jsonUrl = process.env.NODE_ENV === "production" 
+          ? "https://4geeksacademy.github.io/The_Roas_Factory/posts.json"
+          : "/posts.json";  
+    
+        console.log("📡 Fetching:", jsonUrl);
+    
+        const response = await fetch(jsonUrl);
+        console.log("🔍 Response status:", response.status);
+    
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+    
         const data = await response.json();
+        console.log("📜 JSON Data:", data);
+    
         const foundPost = data.find((p) => p.slug === slug);
+        console.log("🔍 Found Post:", foundPost);
+    
         setPost(foundPost);
         setLoading(false);
       } catch (error) {
@@ -32,6 +46,9 @@ export const BlogPost = ({ onScroll }) => {
         setLoading(false);
       }
     };
+    
+    
+    
 
     fetchPost();
   }, [slug, onScroll]);
