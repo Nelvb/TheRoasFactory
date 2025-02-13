@@ -22,8 +22,7 @@ export const BlogPost = ({ onScroll }) => {
 
     const fetchPost = async () => {
       try {
-        const response = await fetch("./posts.json");
-
+        const response = await fetch("/posts.json");
         const data = await response.json();
         const foundPost = data.find((p) => p.slug === slug);
         setPost(foundPost);
