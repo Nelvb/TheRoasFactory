@@ -1,43 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom"; // 👈 Detecta cambios de ruta
+import { useLocation } from "react-router-dom";
 import "../../styles/footer.css";
 
 export const Footer = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const location = useLocation(); // 👈 Detecta cambios de vista
+    const location = useLocation();
+    const currentYear = new Date().getFullYear(); // Año dinámico
 
     useEffect(() => {
         const checkContainer = setInterval(() => {
-            // ✅ Buscar si existe algún contenedor principal
-            const mainContainer = document.querySelector(".main-container") || 
-                                  document.querySelector(".main-container-blog");
+            const mainContainer = document.querySelector(".main-container") ||
+                document.querySelector(".main-container-blog");
 
             if (mainContainer) {
-                clearInterval(checkContainer); // ✅ Detiene el intervalo cuando lo encuentra
+                clearInterval(checkContainer);
 
                 const handleScroll = () => {
                     const scrollTop = mainContainer.scrollTop;
                     const scrollHeight = mainContainer.scrollHeight;
                     const clientHeight = mainContainer.clientHeight;
 
-                    // ✅ Si llegas al final del contenedor, muestra el footer
-                    if (scrollTop + clientHeight >= scrollHeight - 10) {
-                        setIsVisible(true);
-                    } else {
-                        setIsVisible(false);
-                    }
+                    setIsVisible(scrollTop + clientHeight >= scrollHeight - 10);
                 };
 
                 mainContainer.addEventListener("scroll", handleScroll);
-                
                 return () => mainContainer.removeEventListener("scroll", handleScroll);
             }
-        }, 100); // ⏳ Revisa cada 100ms hasta encontrar el contenedor
+        }, 100);
 
-        return () => clearInterval(checkContainer); // 🛑 Limpia el intervalo cuando el componente se desmonta
-    }, [location.pathname]); // 👈 Se actualiza en cada cambio de ruta
+        return () => clearInterval(checkContainer);
+    }, [location.pathname]);
 
-    // 🔥 Obligar a que el footer se esconda inmediatamente al cambiar de vista
     useEffect(() => {
         setIsVisible(false);
     }, [location.pathname]);
@@ -45,22 +38,33 @@ export const Footer = () => {
     return (
         <footer className={`footer ${isVisible ? "visible" : ""}`}>
             <div className="footer-container">
+
+                {/* 🔹 LOGO alineado a la izquierda */}
+                <div className="footer-logo">
+                    <img src="https://res.cloudinary.com/dgyz3ge7g/image/upload/v1739401895/vemixvhw5xkd6ounjuck.png"
+                        alt="The Roas Factory"
+                    />
+                </div>
+
+                {/* 🔹 ENLACES al centro */}
                 <div className="footer-links">
                     <a href="/privacidad">Política de privacidad</a>
                     <a href="/aviso-legal">Aviso legal</a>
                     <a href="/cookies">Política de cookies</a>
                 </div>
-                
+
+                {/* 🔹 CONTACTO alineado a la derecha */}
                 <div className="footer-contact">
-                    <p>Contacto: 
-                        <a href="mailto:theroasfactory@gmail.com"> therorasfactory@gmail.com</a> |
-                        <a href="https://wa.me/34647828838" target="_blank" rel="noopener noreferrer"> WhatsApp</a>
-                    </p>
+                    <a href="mailto:theroasfactory@gmail.com">theroasfactory@gmail.com</a>
+                    <p>+34 647 828 838</p>
+                    <a href="https://wa.me/34647828838" target="_blank" rel="noopener noreferrer">WhatsApp</a>
                 </div>
-                
-                <div className="footer-copy">
-                    <p>© 2024 The Roas Factory. Todos los derechos reservados.</p>
-                </div>
+
+            </div>
+
+            {/* 🔹 Copyright dinámico */}
+            <div className="footer-copy">
+                <p>© {currentYear} The Roas Factory. Todos los derechos reservados.</p>
             </div>
         </footer>
     );
