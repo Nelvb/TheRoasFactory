@@ -17,14 +17,15 @@ const NavbarController = ({ setIsNavbarVisible }) => {
     const location = useLocation();
 
     useEffect(() => {
-        setIsNavbarVisible(true); // 🔥 Reactivar la navbar al cambiar de ruta
+        setIsNavbarVisible(true); // Reactivar la navbar al cambiar de ruta
     }, [location, setIsNavbarVisible]);
 
     return null; // No renderiza nada, solo ejecuta la lógica
 };
 
 const Layout = () => {
-    const basename = process.env.NODE_ENV === "production" ? process.env.BASENAME || "" : "";
+    const basename = process.env.NODE_ENV === "production" ? "/The_Roas_Factory" : "";
+
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
     return (
@@ -45,7 +46,6 @@ const Layout = () => {
                 </ScrollToTop>
             </div>
             
-            {/* 🔥 Footer FUERA de app-container */}
             <Footer />
         </BrowserRouter>
     );

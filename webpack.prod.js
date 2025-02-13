@@ -9,7 +9,7 @@ module.exports = merge(common, {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/The_Roas_Factory/'  // Asegura que la ruta en GitHub Pages sea correcta
+        publicPath: '/The_Roas_Factory/'  // Ruta base para GitHub Pages
     },
     devServer: {
         historyApiFallback: true
@@ -17,7 +17,8 @@ module.exports = merge(common, {
     plugins: [
         new CopyWebpackPlugin({
             patterns: [
-                { from: 'public/posts.json', to: 'posts.json' } // Copia el JSON a dist
+                { from: path.resolve(__dirname, 'public', 'posts.json'), to: 'posts.json' }, // Copia el JSON a dist
+                { from: path.resolve(__dirname, 'public', '_redirects'), to: '_redirects' } // Redirección para React Router en GitHub Pages
             ]
         }),
         new Dotenv({
