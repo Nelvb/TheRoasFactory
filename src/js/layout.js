@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
@@ -29,7 +29,7 @@ const Layout = () => {
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
     return (
-        <BrowserRouter basename={basename}>
+        <HashRouter>
             <div className="app-container">
                 <NavbarController setIsNavbarVisible={setIsNavbarVisible} />
                 <ScrollToTop>
@@ -47,7 +47,7 @@ const Layout = () => {
             </div>
             
             <Footer />
-        </BrowserRouter>
+        </HashRouter>
     );
 };
 

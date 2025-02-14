@@ -9,7 +9,7 @@ module.exports = merge(common, {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: process.env.BASENAME || '/The_Roas_Factory/'  // Evitar duplicados
+        publicPath: '/'
     },
     devServer: {
         historyApiFallback: true
