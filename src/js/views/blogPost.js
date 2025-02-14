@@ -73,14 +73,14 @@ export const BlogPost = ({ onScroll }) => {
     return <p className="error">Artículo no encontrado.</p>;
   }
 
-  // Función para transformar <a> en <Link>
-  const renderContentWithLinks = (html) => {
-    return html.split(/(<a href="\/blog\/[a-zA-Z0-9-]+">[^<]+<\/a>)/g).map((part, index) => {
+  // **Transformar contenido HTML en JSX válido**
+  const renderContentWithLinks = (content) => {
+    return content.split(/(<a href="\/blog\/[a-zA-Z0-9-]+">[^<]+<\/a>)/g).map((part, index) => {
       const match = part.match(/<a href="(\/blog\/[a-zA-Z0-9-]+)">(.*?)<\/a>/);
       if (match) {
         return <Link key={index} to={match[1]}>{match[2]}</Link>;
       }
-      return part;
+      return <span key={index} dangerouslySetInnerHTML={{ __html: part }} />;
     });
   };
 
