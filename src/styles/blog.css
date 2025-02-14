@@ -90,9 +90,9 @@
 .blog-article {
     position: relative;
     z-index: 1;
-    margin: 140px auto;
+    margin-top: 120px;
     text-align: center;
-
+    padding: 20px;
 }
 
 .read-more {
