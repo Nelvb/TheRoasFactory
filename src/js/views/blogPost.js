@@ -11,7 +11,6 @@ export const BlogPost = ({ onScroll }) => {
   const [loading, setLoading] = useState(true);
   const [isRefReady, setIsRefReady] = useState(false);
 
-  // Cargar el post
   useEffect(() => {
     if (onScroll) {
       onScroll(true);
@@ -21,9 +20,9 @@ export const BlogPost = ({ onScroll }) => {
 
     const fetchPost = async () => {
       try {
-        const jsonUrl = process.env.NODE_ENV === "production" 
+        const jsonUrl = process.env.NODE_ENV === "production"
           ? "https://4geeksacademy.github.io/The_Roas_Factory/posts.json"
-          : "/posts.json";  
+          : "/posts.json";
 
         console.log("Fetching:", jsonUrl);
 
@@ -49,7 +48,6 @@ export const BlogPost = ({ onScroll }) => {
     fetchPost();
   }, [slug, onScroll]);
 
-  // **Esperar a que blogPostRef esté listo antes de usarlo**
   useEffect(() => {
     const checkRefReady = setInterval(() => {
       if (blogPostRef.current) {
@@ -61,7 +59,6 @@ export const BlogPost = ({ onScroll }) => {
     return () => clearInterval(checkRefReady);
   }, []);
 
-  // **Ejecutar useNavbarScroll sin romper las reglas de los hooks**
   useNavbarScroll(onScroll, isRefReady ? blogPostRef : { current: null });
 
   if (loading) {
@@ -76,13 +73,16 @@ export const BlogPost = ({ onScroll }) => {
     return <p className="error">Artículo no encontrado.</p>;
   }
 
-  // Reemplazar los enlaces dentro del contenido HTML
-  const contentWithLinks = post.content.replace(
-    /<a href="(\/blog\/[a-zA-Z0-9-]+)">([^<]+)<\/a>/g,
-    (match, url, text) => {
-      return `<Link to="${url}">${text}</Link>`;
-    }
-  );
+  // Función para transformar <a> en <Link>
+  const renderContentWithLinks = (html) => {
+    return html.split(/(<a href="\/blog\/[a-zA-Z0-9-]+">[^<]+<\/a>)/g).map((part, index) => {
+      const match = part.match(/<a href="(\/blog\/[a-zA-Z0-9-]+)">(.*?)<\/a>/);
+      if (match) {
+        return <Link key={index} to={match[1]}>{match[2]}</Link>;
+      }
+      return part;
+    });
+  };
 
   return (
     <div className="main-container" ref={blogPostRef}>
@@ -97,7 +97,9 @@ export const BlogPost = ({ onScroll }) => {
           {new Date(post.date).toLocaleDateString()} - {post.author}
         </p>
         {post.image && <img src={post.image} alt={post.title} className="blog-image-full" />}
-        <div className="blog-content" dangerouslySetInnerHTML={{ __html: contentWithLinks }} />
+        <div className="blog-content">
+          {renderContentWithLinks(post.content)}
+        </div>
         <Link to="/blog" className="back-button">
           ← Volver al Blog
         </Link>
