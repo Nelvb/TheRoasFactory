@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../styles/footer.css";
 
 export const Footer = () => {
@@ -38,34 +39,34 @@ export const Footer = () => {
     return (
         <footer className={`footer ${isVisible ? "visible" : ""}`}>
             <div className="footer-container">
-
-                {/* 🔹 LOGO alineado a la izquierda */}
-                <div className="footer-logo">
+                <a href="/" className="footer-logo">
                     <img src="https://res.cloudinary.com/dgyz3ge7g/image/upload/v1739401895/vemixvhw5xkd6ounjuck.png"
                         alt="The Roas Factory"
                     />
-                </div>
+                </a>
 
-                {/* 🔹 ENLACES al centro */}
-                <div className="footer-links">
-                    <a href="/privacidad">Política de privacidad</a>
-                    <a href="/aviso-legal">Aviso legal</a>
-                    <a href="/cookies">Política de cookies</a>
-                </div>
-
-                {/* 🔹 CONTACTO alineado a la derecha */}
                 <div className="footer-contact">
-                    <a href="mailto:theroasfactory@gmail.com">theroasfactory@gmail.com</a>
-                    <p>+34 647 828 838</p>
-                    <a href="https://wa.me/34647828838" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                    <a href="mailto:theroasfactory@gmail.com" className="contact-link">
+                        <i className="fa-solid fa-envelope"></i> theroasfactory@gmail.com
+                    </a>
+                    <a href="tel:+34647828838" className="contact-link phone-link">
+                        <i className="fa-solid fa-phone"></i> +34 647 828 838
+                    </a>
+                    <a href="https://wa.me/34647828838" target="_blank" rel="noopener noreferrer" className="contact-link">
+                        <i className="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
                 </div>
-
             </div>
 
-            {/* 🔹 Copyright dinámico */}
-            <div className="footer-copy">
-                <p>© {currentYear} The Roas Factory. Todos los derechos reservados.</p>
+            <div className="footer-bottom">
+                <div className="footer-copy">© {currentYear} The Roas Factory. Todos los derechos reservados.</div>
+                <div className="footer-links">
+                    <Link to="/privacidad">Política de privacidad</Link> |
+                    <Link to="/avisoLegal"> Aviso legal</Link> |
+                    <Link to="/politicaCookies"> Política de cookies</Link>
+                </div>
             </div>
         </footer>
     );
+
 };

@@ -89,6 +89,13 @@ p {
     transform: scale(1.1);
 }
 
+/* 1️⃣ Optimización del renderizado para evitar residuos */
+.main-container, .main-container-blog, .privacidad-container {
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+
 @media (max-width: 768px) {
     .content {
         padding: 30px;

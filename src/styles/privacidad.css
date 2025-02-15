@@ -1,0 +1,55 @@
+.main-container.privacidad .content {
+    background: white;
+    color: black;
+    margin-bottom: 40px;
+}
+
+/* 📌 Asegurar que h1 y h2 estén centrados */
+.main-container.privacidad h1 {
+    text-align: center;
+}
+
+/* 📌 Asegurar que h1 y h2 estén centrados */
+.main-container.privacidad h2 {
+    text-align: left;
+}
+
+/* 📌 Asegurar que los párrafos y listas estén alineados a la izquierda */
+.main-container.privacidad p,
+.main-container.privacidad ul {
+    text-align: left;
+    color: black;
+    /* Asegurar que el texto sea negro */
+}
+
+/* 📌 Si los <ul> se ven mal, agregar margen */
+.main-container.privacidad ul {
+    margin-left: 20px;
+}
+
+.content a {
+    color: inherit; /* Usa el mismo color que el texto normal */
+    text-decoration: none; /* Quita el subrayado */
+    font-weight: bold; /* Opcional: resalta el email sin necesidad de subrayado */
+}
+
+.back-button-privacidad {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+    margin-top: 40px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: rgb(233, 121, 124);
+    transform: scale(1.1);
+}

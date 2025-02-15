@@ -1,118 +1,154 @@
+/* Footer General */
 .footer {
     background-color: #A0D2D4;
     color: white;
-    padding: 20px;
+    padding: 20px 40px;
     width: 100%;
     position: fixed;
     bottom: 0;
-    transition: opacity 0.4s ease-in-out, visibility 0.4s;
     z-index: 1000;
-    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out; 
+    opacity: 0; /* Inicialmente oculto */
     visibility: hidden;
 }
 
 .footer.visible {
-    opacity: 1;
+    opacity: 1; 
     visibility: visible;
 }
 
+/* Contenedor principal */
 .footer-container {
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    /* 🔹 Tres columnas iguales */
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
-    /* 🔹 Centra los textos */
 }
 
-
-/* 🔹 Estilos para el logo */
+/* Logo (Clickeable) */
 .footer-logo {
     display: flex;
-    justify-content: center; /* 🔹 Centra horizontalmente */
-    align-items: center; /* 🔹 Centra verticalmente */
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-logo img {
     height: 70px;
+    margin-right: 50px;
     width: auto;
-    display: block; /* ✅ Permite que el margin auto funcione */
-    margin: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-logo:hover img {
+    transform: scale(1.1);
+}
+
+/* Contacto (Email, Teléfono, WhatsApp) */
+.footer-contact {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.contact-link {
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact-link, 
+.contact-link:visited, 
+.contact-link:active {
+    color: whitesmoke; 
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    transform: scale(1.1);
+    color: whitesmoke; 
+    text-decoration: none;
 }
 
 
-/* 🔹 Enlaces en el centro */
+/* Teléfono en móviles es clickeable, en pantallas grandes NO */
+.phone-link {
+    pointer-events: none; /* Desactiva en pantallas grandes */
+}
+
+
+/* Iconos */
+.contact-link i {
+    font-size: 1.2rem;
+}
+
+/* Segunda Línea (Copyright y Enlaces) */
+.footer-bottom {
+    display: flex; /* ✅ Activa flexbox */
+    justify-content: space-between; /* ✅ Distribuye en los extremos */
+    align-items: center; /* ✅ Asegura alineación vertical */
+    width: 100%;
+    padding: 10px 20px; /* 🔹 Ajusta el espacio alrededor */
+}
+
+.footer-copy {
+    color: black;
+    font-size: 1.2rem;
+    padding-right: 50px;
+}
+
 .footer-links {
     display: flex;
-    flex-direction: column;
-    text-align: center;
+    gap: 15px;
 }
 
 .footer-links a {
     color: whitesmoke;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 
 .footer-links a:hover {
-    color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
 }
 
-/* 🔹 Contacto a la derecha */
-.footer-contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.footer-contact a,
-.footer-contact p  {
-    color: whitesmoke;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease-in-out;
-}
-
-.footer-contact p {
-    color: whitesmoke;
-    font-size: 1rem;
-    margin: 0px;
-}
-
-
-.footer-contact a:hover {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/* 🔹 Copyright */
-.footer-copy {
-    text-align: center;
-    opacity: 0.8;
-    margin-top: 20px;
-}
-
-.footer-copy p {
-    font-size: 1.1rem;
-}
-
-
-
-/* ✅ Responsivo */
+/* Responsivo */
 @media (max-width: 768px) {
     .footer-container {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 5px;
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-bottom {
         flex-direction: column;
         text-align: center;
     }
 
-    .footer-links {
-        flex-direction: column;
+    .footer-copy {
+        font-size: 1rem;
+        padding-right: 0px;
+        margin-bottom: 10px;
     }
 
-    .footer-contact {
-        align-items: center;
+    .phone-link {
+        pointer-events: auto; /* Activa en móviles */
+    }
+
+    .footer-logo img {
+        margin-right: 0px;
     }
 }
