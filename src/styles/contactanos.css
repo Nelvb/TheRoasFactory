@@ -32,19 +32,27 @@
 }
 
 .contact-form button {
-    background: transparent;
-    color: transparent;
+    display: block; /* Para que respete el tamaño de contenido */
+    width: fit-content; /* Ajusta el ancho al contenido */
+    background-color: rgb(160, 210, 212);
+    color: white;
     font-size: 1.2rem;
-    padding: 10px;
+    font-weight: bold;
+    padding: 12px 24px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    text-align: center;
     margin-top: 15px;
+    margin-left: auto; /* Centra horizontalmente */
+    margin-right: auto; /* Centra horizontalmente */
     transition: background 0.3s ease;
 }
 
+
 .contact-form button:hover {
     background: #e0484d;
+    transform: scale(1.1);
 }
 
 /* Sección de WhatsApp */
@@ -62,10 +70,10 @@
     color: white;
     font-size: 1.2rem;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     text-decoration: none;
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 2rem;
     transition: background 0.3s ease;
 }
 
@@ -74,7 +82,8 @@
 }
 
 .btn-whatsapp:hover {
-    background: #1EBE57;
+    color: white;
+    transform: scale(1.1);
 }
 
 /* Medias */

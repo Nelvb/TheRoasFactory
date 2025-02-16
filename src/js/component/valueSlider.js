@@ -34,7 +34,7 @@ export const ValueSlider = ({ currentIndex, nextSlide, prevSlide, setCurrentInde
         <section className="values-section container">
             <h2 className="text-center">Nuestros valores</h2>
             <div className="values-slider d-flex flex-wrap justify-content-center">
-            <motion.div
+                <motion.div
                     className="value-content row w-100"
                     key={currentIndex}
                     initial={{ opacity: 0, x: 50 }}
@@ -43,7 +43,7 @@ export const ValueSlider = ({ currentIndex, nextSlide, prevSlide, setCurrentInde
                     transition={{ duration: 0.7, ease: "easeInOut" }}
                 >
                     <div
-                        className="value-left col-md-6 d-flex justify-content-center align-items-center"
+                        className="value-left col-md-6 flex-center"
                         style={{ backgroundImage: `url(${valores[currentIndex].image})` }}
                     >
                         <h3>{valores[currentIndex].title}</h3>
@@ -59,6 +59,7 @@ export const ValueSlider = ({ currentIndex, nextSlide, prevSlide, setCurrentInde
                 <button className="prev" onClick={prevSlide} aria-label="Slide anterior">
                     <i className="fa-solid fa-chevron-left"></i>
                 </button>
+
                 <div className="slider-dots">
                     {valores.map((_, index) => (
                         <span
@@ -68,10 +69,12 @@ export const ValueSlider = ({ currentIndex, nextSlide, prevSlide, setCurrentInde
                         ></span>
                     ))}
                 </div>
+
                 <button className="next" onClick={nextSlide} aria-label="Siguiente slide">
                     <i className="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
+
         </section>
     );
 };
