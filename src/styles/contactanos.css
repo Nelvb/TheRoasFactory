@@ -92,6 +92,12 @@
         padding: 15px;
     }
 
+    /* Sección de WhatsApp */
+.contact-options {
+    margin-bottom: 60px;
+
+}
+
     .btn-whatsapp {
         font-size: 1rem;
     }
