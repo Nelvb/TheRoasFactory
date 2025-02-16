@@ -33,7 +33,7 @@ const Layout = () => {
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
     return (
-        <BrowserRouter basename={basename}>
+        <BrowserRouter basename={basename} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
             <div className="app-container">
                 <NavbarController setIsNavbarVisible={setIsNavbarVisible} />
                 <ScrollToTop>
@@ -45,14 +45,14 @@ const Layout = () => {
                         <Route path="/blog" element={<Blog onScroll={setIsNavbarVisible} />} />
                         <Route path="/blog/:slug" element={<BlogPost onScroll={setIsNavbarVisible} />} />
                         <Route path="/contactanos" element={<Contactanos onScroll={setIsNavbarVisible} />} />
-                        <Route path="/privacidad" element={<Privacidad onScroll={setIsNavbarVisible}/>} />
-                        <Route path="/avisoLegal" element={<AvisoLegal onScroll={setIsNavbarVisible}/>} />
-                        <Route path="/politicaCookies" element={<PoliticaCookies onScroll={setIsNavbarVisible}/>} />
+                        <Route path="/privacidad" element={<Privacidad onScroll={setIsNavbarVisible} />} />
+                        <Route path="/avisoLegal" element={<AvisoLegal onScroll={setIsNavbarVisible} />} />
+                        <Route path="/politicaCookies" element={<PoliticaCookies onScroll={setIsNavbarVisible} />} />
                         <Route path="*" element={<h1>Not found!</h1>} />
                     </Routes>
                 </ScrollToTop>
             </div>
-            
+
             <Footer />
         </BrowserRouter>
     );
