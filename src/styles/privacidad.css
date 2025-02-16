@@ -4,33 +4,28 @@
     margin-bottom: 40px;
 }
 
-/* 📌 Asegurar que h1 y h2 estén centrados */
 .main-container.privacidad h1 {
     text-align: center;
 }
 
-/* 📌 Asegurar que h1 y h2 estén centrados */
 .main-container.privacidad h2 {
     text-align: left;
 }
 
-/* 📌 Asegurar que los párrafos y listas estén alineados a la izquierda */
 .main-container.privacidad p,
 .main-container.privacidad ul {
     text-align: left;
     color: black;
-    /* Asegurar que el texto sea negro */
 }
 
-/* 📌 Si los <ul> se ven mal, agregar margen */
 .main-container.privacidad ul {
     margin-left: 20px;
 }
 
 .content a {
-    color: inherit; /* Usa el mismo color que el texto normal */
-    text-decoration: none; /* Quita el subrayado */
-    font-weight: bold; /* Opcional: resalta el email sin necesidad de subrayado */
+    color: inherit; 
+    text-decoration: none;
+    font-weight: bold; 
 }
 
 .back-button-privacidad {
