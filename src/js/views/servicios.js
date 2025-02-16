@@ -177,7 +177,7 @@ export const Servicios = ({ onScroll }) => {
 
       <div className="max-w-6xl mx-auto p-8 space-y-16 bg-gray-50">
         {servicios.map((servicio, index) => (
-          <section key={index} className="services">
+          <section key={index} className="section-container">
             <h2>{servicio.title}</h2>
             <p><strong>{servicio.description}</strong></p>
             <Carousel images={servicio.images} />
@@ -194,7 +194,7 @@ export const Servicios = ({ onScroll }) => {
         ))}
       </div>
 
-      <section className="cta">
+      <section className="section-container">
         <h2>¿Listos para transformar tu marca?</h2>
         <p>
           En The Roas Factory, no solo creamos estrategias, construimos conexiones que impulsan resultados.

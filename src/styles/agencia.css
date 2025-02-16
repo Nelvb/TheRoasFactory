@@ -120,8 +120,9 @@
 .slider-dots {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 8px;
+    margin-top: 10px;
+    position: relative;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .slider-dots :hover{

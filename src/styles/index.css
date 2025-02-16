@@ -69,6 +69,43 @@ p {
     color: #000000;
 }
 
+/* Unificar estilos de secciones */
+.section-container {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+/* Ajustar textos */
+.section-container p {
+    color: #000; 
+}
+
+/* Lista con iconos (solo para ciertas secciones como 'approach') */
+.section-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section-container li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #000000;
+    position: relative;
+}
+
+.section-container li::before {
+    content: "✔";
+    color: limegreen;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
 .cta-button {
     display: inline-block;
     background-color: rgb(160, 210, 212);
@@ -89,7 +126,7 @@ p {
     transform: scale(1.1);
 }
 
-/* 1️⃣ Optimización del renderizado para evitar residuos */
+/* Optimización del renderizado para evitar residuos */
 .main-container, .main-container-blog, .privacidad-container {
     backface-visibility: hidden;
     will-change: transform;

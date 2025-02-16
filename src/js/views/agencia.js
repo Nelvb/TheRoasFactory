@@ -92,7 +92,7 @@ export const Agencia = ({ onScroll }) => {
                 setCurrentIndex={setCurrentIndex}
             />
 
-            <section className="approach">
+<section className="section-container">
                 <h2>Nuestro Enfoque</h2>
                 <p>
                     Nos tomamos el tiempo de comprender a fondo tus necesidades y las de tu audiencia.
@@ -101,7 +101,7 @@ export const Agencia = ({ onScroll }) => {
 
             </section>
 
-            <section className="partners">
+            <section className="section-container">
                 <h2>Alianzas que transforman</h2>
                 <p>
                     Creemos en el poder de las alianzas estratégicas. Al conectar diferentes capacidades y fomentar
@@ -111,7 +111,7 @@ export const Agencia = ({ onScroll }) => {
                 </p>
             </section>
 
-            <section className="team">
+            <section className="section-container">
                 <h2>Conoce a nuestro equipo</h2>
                 <p>
                     Nuestro equipo combina experiencia en estrategia, marketing y tecnología para crear
@@ -121,7 +121,7 @@ export const Agencia = ({ onScroll }) => {
                 </p>
             </section>
 
-            <section className="cta">
+            <section className="section-container">
                 <h2>¿Listo para dar el siguiente paso?</h2>
                 <p>
                     Nos encantaría conocer tu proyecto y explorar juntos cómo llevarlo al siguiente nivel.
