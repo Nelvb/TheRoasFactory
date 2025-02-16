@@ -36,6 +36,20 @@ export const Home = ({ onScroll }) => {
     useNavbarScroll(onScroll, homeRef);
 
     return (
+        <div className="app-container home">
+<div className="carousel">
+                <div className="carousel-track">
+                    {Array(10).fill(imageUrl).map((url, index) => (
+                        <img
+                            key={index}
+                            src={url}
+                            loading="lazy"
+                            alt="Publicidad y marketing digital en Madrid"
+                        />
+                    ))}
+                </div>
+            </div>
+
         <div className="main-container" ref={homeRef}>
             <Helmet>
                 <title>Agencia de Publicidad y Marketing Digital en Madrid | The Roas Factory</title>
@@ -58,18 +72,7 @@ export const Home = ({ onScroll }) => {
                 </p>
             </section>
 
-            <div className="carousel">
-                <div className="carousel-track">
-                    {Array(10).fill(imageUrl).map((url, index) => (
-                        <img
-                            key={index}
-                            src={url}
-                            loading="lazy"
-                            alt="Publicidad y marketing digital en Madrid"
-                        />
-                    ))}
-                </div>
-            </div>
+            
 
             <section className="card-container">
                 {cardData.map((card, index) => (
@@ -113,5 +116,7 @@ export const Home = ({ onScroll }) => {
                 </ul>
             </section>
         </div>
+        </div>
+
     );
 };
