@@ -156,4 +156,12 @@ p {
         padding-left: 15px;
         padding-right: 15px;
     }
+
+    .section-container:last-of-type {
+        margin-bottom: 100px;
+    }
+
+    .max-w-6xl .section-container:last-child {
+        margin-bottom: 40px;
+    }
 }

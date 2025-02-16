@@ -23,6 +23,11 @@
 .navbar-brand img {
     height: 90px;
     width: auto;
+    transition: transform 0.3s ease-in-out; 
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
 }
 
 /* Links de la navbar en escritorio */
