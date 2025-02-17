@@ -134,6 +134,59 @@ p {
     will-change: transform;
 }
 
+/* Estado inicial: oculto y desplazado */
+.content, 
+.section-container, 
+.about-us, 
+.values-section, 
+.value-content, 
+.contact-container, 
+.contact-form, 
+.contact-options {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.blog-post,
+.card {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 0.8s ease-out, transform 1s ease-out !important; /* Más lento */
+    will-change: opacity, transform;
+}
+
+
+/* Cuando el Observer detecta la sección */
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estado inicial: oculto y desplazado */
+.blog-article h1,
+.blog-article .post-info,
+.blog-article .blog-image-full,
+.blog-article .blog-content {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Cuando un elemento está listo */
+.blog-article h1.fade-in,
+.blog-article .post-info.fade-in,
+.blog-article .blog-image-full.fade-in,
+.blog-article .blog-content.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+
 
 @media (max-width: 768px) {
     .content {

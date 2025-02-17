@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
+import ScrollAnimationWrapper from "./component/scrollAnimationWrapper";
 
 import { Home } from "./views/home";
 import { Agencia } from "./views/agencia";
@@ -29,6 +30,7 @@ const NavbarController = ({ setIsNavbarVisible }) => {
 
 const Layout = () => {
     const basename = process.env.NODE_ENV === "production" ? "/The_Roas_Factory" : "";
+    
 
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
@@ -36,6 +38,7 @@ const Layout = () => {
         <BrowserRouter basename={basename} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
             <div className="app-container">
                 <NavbarController setIsNavbarVisible={setIsNavbarVisible} />
+                <ScrollAnimationWrapper />
                 <ScrollToTop>
                     <Navbar isVisible={isNavbarVisible} />
                     <Routes>
