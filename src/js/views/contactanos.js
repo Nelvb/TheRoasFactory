@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { IconsFloating } from "../../js/component/iconsFloating";
 import "../../styles/contactanos.css";
 import useNavbarScroll from "../../js/component/useNavbarScroll";
-import emailjs from "emailjs-com";
+import { sendEmail } from "../../js/services/emailService"; // Servicio de envío de email
 import CustomAlert from "../../js/component/customAlert";
 
 export const Contactanos = ({ onScroll }) => {
@@ -17,33 +17,82 @@ export const Contactanos = ({ onScroll }) => {
         asunto: "",
         mensaje: "",
     });
+
+    const [errors, setErrors] = useState({});
     const [alert, setAlert] = useState({ show: false, message: "", type: "success" });
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Validación en tiempo real por campo
+    const validateField = (name, value) => {
+        let error = "";
+
+        switch (name) {
+            case "nombre":
+                if (!/^[a-zA-ZÁÉÍÓÚáéíóúñÑ\s]{2,50}$/.test(value)) {
+                    error = "Introduce un nombre válido (solo letras y espacios).";
+                }
+                break;
+            case "email":
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                    error = "Introduce un email válido.";
+                }
+                break;
+            case "telefono":
+                if (!/^\d{9,15}$/.test(value)) {
+                    error = "Introduce un teléfono válido (solo números, entre 9 y 15 dígitos).";
+                }
+                break;
+            case "asunto":
+                if (value.length < 3) {
+                    error = "El asunto debe tener al menos 3 caracteres.";
+                }
+                break;
+            case "mensaje":
+                if (/(https?:\/\/[^\s]+)/g.test(value)) {
+                    error = "No se permiten enlaces en el mensaje.";
+                }
+                break;
+            default:
+                break;
+        }
+
+        setErrors((prev) => ({ ...prev, [name]: error }));
     };
 
-    const handleSubmit = (e) => {
+    // Manejo de cambios en los campos
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+        validateField(name, value);
+    };
+
+    // Manejo del envío del formulario
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!formData.nombre || !formData.email || !formData.telefono || !formData.asunto || !formData.mensaje) {
-            setAlert({ show: true, message: "Todos los campos son obligatorios", type: "error" });
+        // Validaciones finales antes de enviar
+        const newErrors = {};
+        Object.keys(formData).forEach((field) => {
+            if (!formData[field]) {
+                newErrors[field] = "Este campo es obligatorio.";
+            }
+        });
+
+        setErrors(newErrors);
+
+        // Si hay errores, detener el envío
+        if (Object.values(newErrors).some((error) => error)) {
+            setAlert({ show: true, message: "Corrige los errores antes de enviar.", type: "error" });
             return;
         }
 
-        emailjs.sendForm(
-            "service_xn5h3pb", // Reemplazar con tu ID de servicio
-            "template_q589ayq", // Reemplazar con tu ID de plantilla
-            e.target,
-            "HxsrmZcKRK5mPtoVp" // Reemplazar con tu public key
-        )
-            .then(() => {
-                setAlert({ show: true, message: "Mensaje enviado con éxito", type: "success" });
-                setFormData({ nombre: "", email: "", telefono: "", asunto: "", mensaje: "" });
-            })
-            .catch(() => {
-                setAlert({ show: true, message: "Error al enviar el mensaje. Intenta de nuevo", type: "error" });
-            });
+        const response = await sendEmail(formData);
+
+        if (response.success) {
+            setAlert({ show: true, message: "Mensaje enviado con éxito.", type: "success" });
+            setFormData({ nombre: "", email: "", telefono: "", asunto: "", mensaje: "" });
+        } else {
+            setAlert({ show: true, message: response.message, type: "error" });
+        }
     };
 
     const whatsappNumber = "34647828838";
@@ -59,34 +108,30 @@ export const Contactanos = ({ onScroll }) => {
 
                 <section className="content">
                     <h1>Contáctanos</h1>
-                    <p>
-                        Completa el formulario y descubre cómo nuestras soluciones personalizadas pueden transformar tu presencia online.
-                    </p>
-                    <p>
-                        ¿Por qué elegirnos? Experiencia y Conocimiento: Nuestro equipo está formado por profesionales con amplia experiencia en marketing digital.
-                    </p>
-                    <p>
-                        Rellena el formulario y uno de nuestros especialistas se pondrá en contacto contigo para una consulta gratuita.
-                        ¡No esperes más para ver los resultados que deseas!
-                    </p>
+                    <p>Completa el formulario y descubre cómo nuestras soluciones personalizadas pueden transformar tu presencia online.</p>
                 </section>
 
                 <div className="contact-container">
                     <form className="contact-form" onSubmit={handleSubmit}>
                         <label htmlFor="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} required />
+                        <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} onBlur={handleChange} required />
+                        {errors.nombre && <p className="error-message">{errors.nombre}</p>}
 
                         <label htmlFor="email">Email</label>
-                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} onBlur={handleChange} required />
+                        {errors.email && <p className="error-message">{errors.email}</p>}
 
                         <label htmlFor="telefono">Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" value={formData.telefono} onChange={handleChange} required />
+                        <input type="tel" id="telefono" name="telefono" value={formData.telefono} onChange={handleChange} onBlur={handleChange} required />
+                        {errors.telefono && <p className="error-message">{errors.telefono}</p>}
 
                         <label htmlFor="asunto">Asunto</label>
-                        <input type="text" id="asunto" name="asunto" value={formData.asunto} onChange={handleChange} required />
+                        <input type="text" id="asunto" name="asunto" value={formData.asunto} onChange={handleChange} onBlur={handleChange} required />
+                        {errors.asunto && <p className="error-message">{errors.asunto}</p>}
 
                         <label htmlFor="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" rows="5" value={formData.mensaje} onChange={handleChange} required></textarea>
+                        <textarea id="mensaje" name="mensaje" rows="5" value={formData.mensaje} onChange={handleChange} onBlur={handleChange} required></textarea>
+                        {errors.mensaje && <p className="error-message">{errors.mensaje}</p>}
 
                         <button type="submit" className="btn-submit">Enviar mensaje</button>
                     </form>
