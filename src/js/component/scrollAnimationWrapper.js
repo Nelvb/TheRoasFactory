@@ -39,7 +39,7 @@ const ScrollAnimationWrapper = () => {
                         }
                     });
                 },
-                { rootMargin: "50px 0px", threshold: 0.2 }
+                { rootMargin: "100px 0px", threshold: 0.1 }
             );
 
             elements.forEach(el => observer.observe(el));

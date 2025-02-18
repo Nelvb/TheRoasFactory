@@ -109,7 +109,10 @@ export const Contactanos = ({ onScroll }) => {
                 <section className="content">
                     <h1>Contáctanos</h1>
                     <p>Completa el formulario y descubre cómo nuestras soluciones personalizadas pueden transformar tu presencia online.</p>
+                    <p>¿Por qué elegirnos? Experiencia y Conocimiento: Nuestro equipo está formado por profesionales con amplia experiencia en marketing digital.</p>
+                    <p>Rellena el formulario y uno de nuestros especialistas se pondrá en contacto contigo para una consulta gratuita. ¡No esperes más para ver los resultados que deseas!</p>
                 </section>
+
 
                 <div className="contact-container">
                     <form className="contact-form" onSubmit={handleSubmit}>
