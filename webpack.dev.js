@@ -6,34 +6,36 @@ const common = require('./webpack.common.js');
 const port = 3000;
 let publicUrl = `ws://localhost:${port}/ws`;
 
+console.log('BASENAME:', process.env.BASENAME); // Este es el log
+
 //only for gitpod
-if(process.env.GITPOD_WORKSPACE_URL){
+if (process.env.GITPOD_WORKSPACE_URL) {
   const [schema, host] = process.env.GITPOD_WORKSPACE_URL.split('://');
   publicUrl = `wss://${port}-${host}/ws`;
 }
 
 //only for codespaces
-if(process.env.CODESPACE_NAME){
+if (process.env.CODESPACE_NAME) {
   publicUrl = `wss://${process.env.CODESPACE_NAME}-${port}.preview.app.github.dev/ws`;
 }
 
 module.exports = merge(common, {
-    mode: 'development',
-    devtool: 'cheap-module-source-map',
-    devServer: {
-        port,
-        hot: true,
-        allowedHosts: "all",
-        historyApiFallback: true,
-        static: [
-          {
-            directory: path.resolve(__dirname, "dist"),
-          },
-          {
-            directory: path.resolve(__dirname, "public"),
-          }
-        ],
-        
-    },
-    plugins: []
+  mode: 'development',
+  devtool: 'cheap-module-source-map',
+  devServer: {
+    port,
+    hot: true,
+    allowedHosts: "all",
+    historyApiFallback: true,
+    static: [
+      {
+        directory: path.resolve(__dirname, "dist"),
+      },
+      {
+        directory: path.resolve(__dirname, "public"),
+      }
+    ],
+    open: true, // Esto abrirá el navegador automáticamente
+  },
+  plugins: []
 });

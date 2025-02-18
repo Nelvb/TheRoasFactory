@@ -4,6 +4,8 @@ const Dotenv = require('dotenv-webpack');
 const path = require("path");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+console.log('BASENAME:', process.env.BASENAME); // Aquí se imprime la variable
+
 module.exports = merge(common, {
     mode: 'production',
     output: {
@@ -24,6 +26,7 @@ module.exports = merge(common, {
             ]
         }),
         new Dotenv({
+            path: './.env',
             safe: true,
             systemvars: true
         })
