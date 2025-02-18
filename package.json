@@ -2,7 +2,7 @@
 	"name": "react-hello-webapp",
 	"homepage": "https://4GeeksAcademy.github.io/The_Roas_Factory",
 	"engines": {
-		"node": "16.x"
+		"node": "22.x"
 	},
 	"version": "1.0.1",
 	"description": "",
