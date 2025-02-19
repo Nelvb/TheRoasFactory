@@ -75,3 +75,10 @@
     backdrop-filter: blur(10px);
 }
 
+/* Para pantallas pequeñas */
+@media (max-width: 768px) {
+    .carousel img {
+        min-width: 400px;
+        height: 100vh;
+    }
+}
