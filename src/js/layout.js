@@ -29,7 +29,8 @@ const NavbarController = ({ setIsNavbarVisible }) => {
 };
 
 const Layout = () => {
-    const basename = process.env.NODE_ENV === "production" ? "/The_Roas_Factory" : "";
+    console.log("⚡ Layout se está renderizando!");
+    const basename = process.env.PUBLIC_URL || "";
     
 
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
