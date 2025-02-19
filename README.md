@@ -1,103 +1,131 @@
-# WebApp boilerplate with React JS
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/react-hello-webapp.git)
+# 🚀 The Roas Factory | Agencia de Marketing Digital
+![Logo_sin_fondo](https://github.com/user-attachments/assets/4081c3cd-05d5-4fd6-a5f0-d5686142ff32)
 
-<p align="center">
-<a href="https://www.loom.com/share/f37c6838b3f1496c95111e515e83dd9b"><img src="https://github.com/4GeeksAcademy/react-hello-webapp/blob/master/src/img/how-to.png?raw=true" /></a>
-</p>
+**Bienvenido a The Roas Factory**, una agencia especializada en estrategias de marketing digital, publicidad online y optimización SEO. Desarrollamos soluciones innovadoras para potenciar la presencia digital de empresas y marcas.
 
+📍 **Sitio Web:** [The Roas Factory](https://the-roas-factory.vercel.app/)  
+📍 **Repositorio:** [GitHub](https://github.com/Nelvb/TheRoasFactory)
 
-### Requirements:
-- Make sure you are using node version 10
+---
 
-1. Install the packages:
+## 🛠️ Tecnologías Utilizadas
+
+- **Frontend:** React.js, React Router, React Helmet
+- **Estilos:** CSS3, Bootstrap, Cloudinary (para optimización de imágenes)
+- **Despliegue:** Vercel
+- **SEO y Optimización:** Open Graph, Meta Tags, Google Tag Manager
+
+---
+
+## 📂 Estructura del Proyecto
+
 ```
-$ npm install
-```
-2. Create a .env file:
-```
-$ cp .env.example .env
-```
-3. Start coding! and the webpack dev server with live reload, for windows, mac, linux or Gitpod:
-
-```bash
-$ npm run start
-```
-
-### Styles
-You can update the `styles/index.css` or create new `.css` files inside `styles/` and import them into your current scss or js files depending on your needs.
-
-### Components
-Add more files into your `./src/js/components` or styles folder as you need them and import them into your current files as needed.
-
-**Note (New changes)**: Components have been converted into functions to support the use of hooks:
-* Instead of a class component, we're using a `const` function.
-* Class `constructor` and `state` have been replaced by `useState()` hooks.
-* `componentDidMount()` was replaced by `useEffect({}, [])` - It runs at mount thanks to the second parameter (`[]`).
-* `Actions` and `Store` still work the same way.
-
-```jsx
-// Previous "Class Oriented"
-export class Demo extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = getState('code here');
-	}
-}
-
-// New "Functional Oriented"
-export const Demo = () => (
-	const [state, setState] = getState('code here'); //using the state (if needed)
-  const { store, actions } = useContext(Context); // using the context (if needed)
-
-);
+/src
+├── /components   # Componentes reutilizables (Navbar, Footer, etc.)
+├── /views        # Páginas principales (Home, Agencia, Servicios, Blog, etc.)
+├── /store        # Gestión de estado con Context API
+├── /styles       # Archivos CSS organizados por secciones
+├── /img          # Recursos visuales optimizados
+├── /js           # Funciones y hooks personalizados
+├── index.js      # Punto de entrada de React
+├── layout.js     # Layout principal con React Router
 ```
 
-💡Note: There is an example using the Context API inside `views/demo.js`;
+---
 
-### Views (Components)
-Add more files into your `./src/js/views` and import them in `./src/js/layout.jsx`.
+## 🚀 Instalación y Configuración
 
-### Context
-This boilerplate comes with a centralized general Context API. The file `./src/js/store/flux.js` has a base structure for the store, we encourage you to change it and adapt it to your needs.
-
-React Context [docs](https://reactjs.org/docs/context.html)
-BreathCode Lesson [view](https://content.breatheco.de/lesson/react-hooks-explained)
-
-The `Provider` is already set. You can consume from any component using the useContext hook to get the `store` and `actions` from the Context. Check `/views/demo.js` to see a demo.
-
-```jsx
-import { Context } from "../store/appContext";
-const MyComponentSuper = () => {
-  //here you use useContext to get store and actions
-  const { store, actions } = useContext(Context);
-  return <div>{/* you can use your actions or store inside the html */}</div>
-}
-```
-
-## Publish your website!
-
-1. **Vercel:** The FREE recomended hosting provider is [vercel.com](https://vercel.com/), you can deploy in 1 minutes by typing the following 2 commands:
-
-Login (you need to have an account):
+### 1️⃣ Clonar el repositorio
 ```sh
-$ npm i vercel -g && vercel login
+git clone https://github.com/Nelvb/TheRoasFactory.git
+cd TheRoasFactory
 ```
-Deploy:
+
+### 2️⃣ Instalar dependencias
 ```sh
-$ vercel --prod
+npm install
 ```
-✎ Note: If you don't have an account just go to vercel.com, create a account and come back here.
 
-![Vercel example procedure to deploy](https://github.com/4GeeksAcademy/react-hello-webapp/blob/4b530ba091a981d3916cc6e960e370decaf2e234/docs/deploy.png?raw=true)
-
-2. **Github Pages:** This boilerplate is 100% compatible with the free github pages hosting.
-To publish your website you need to push your code to your github repository and run the following command after:
+### 3️⃣ Configurar variables de entorno
+Crea un archivo .env en la raíz del proyecto con las siguientes variables:
 ```sh
-$ npm run deploy
+REACT_APP_BASE_URL=https://the-roas-factory.vercel.app
+REACT_APP_GOOGLE_TAG=GTM-XXXXX
 ```
-Note: You will need to [configure github pages for the branch gh-pages](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#enabling-github-pages-to-publish-your-site-from-master-or-gh-pages)
 
-## Contributors
+### 4️⃣ Iniciar el entorno de desarrollo
+```sh
+npm run start
+```
+La aplicación se ejecutará en http://localhost:3000/ 🚀
 
-This template was built as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
+---
+
+## 🎯 Funcionalidades Destacadas
+
+✅ Diseño Responsive - Adaptado a cualquier dispositivo
+✅ Optimización SEO con React Helmet - Meta tags dinámicos y optimización para buscadores
+✅ Carrusel Animado - Fondo con animaciones suaves
+✅ Integración con Cloudinary - Imágenes optimizadas y carga diferida
+✅ Componentización - Código modular y reutilizable
+✅ Envío de Formularios con JSEmail - Contacto seguro y eficiente
+✅ Verificación de Correos Electrónicos - Confirmación de mensajes para mayor seguridad
+
+---
+
+## 🌍 Despliegue en Producción
+
+Nuestro sitio web está desplegado en Vercel. Para actualizar el entorno de producción:
+
+### 🔄 Desplegar cambios en Vercel
+```sh
+git add .
+git commit -m "Nueva actualización"
+git push origin master
+vercel --prod --force
+```
+
+### 🔍 Consultar despliegues recientes
+```sh
+vercel list --prod | head -n 10
+```
+
+---
+
+
+
+### ⚡ Home Page
+
+![Foto home linkedin](https://github.com/user-attachments/assets/9cac1e05-0988-4711-b83c-bf92aa3f28e2)
+
+---
+
+## 📞 Contacto
+
+📩 Email: theroasfactory@gmail.com  
+🌐 Web: [The Roas Factory](https://the-roas-factory.vercel.app/)  
+📢 ¡Síguenos para estar al tanto de nuestras estrategias de marketing digital!
+
+---
+
+## 🤝 Contribuciones
+
+Si deseas contribuir al proyecto, sigue estos pasos:
+
+1️⃣ Fork este repositorio  
+2️⃣ Crea una nueva rama (`git checkout -b feature-nueva`)  
+3️⃣ Realiza cambios y haz commit (`git commit -m "Descripción del cambio"`)  
+4️⃣ Push a tu rama (`git push origin feature-nueva`)  
+5️⃣ Abre un Pull Request 🎉
+
+---
+
+## 📜 Licencia
+
+Este proyecto está bajo la Licencia MIT.
+
+---
+
+🚀 **The Roas Factory** - Impulsando el marketing digital al siguiente nivel.
+
+📌 Si te ha sido útil este proyecto, no olvides dejar una estrella ⭐ en GitHub y compartirlo! 😊
