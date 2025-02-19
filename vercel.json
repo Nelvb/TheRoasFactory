@@ -12,7 +12,7 @@
       "config": { "distDir": "public" }
     }
   ],
- "rewrites": [
-  { "source": "/(.*)", "destination": "/template.html" }
-]
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }

@@ -41,7 +41,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       favicon: 'favicon.ico',
-      template: 'template.html'
+      template: './public/index.html'
     }),
     new Dotenv({ path: './.env', safe: true, systemvars: true })
   ]
