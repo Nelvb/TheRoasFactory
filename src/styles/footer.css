@@ -91,11 +91,11 @@
 
 /* Segunda Línea (Copyright y Enlaces) */
 .footer-bottom {
-    display: flex; /* ✅ Activa flexbox */
-    justify-content: space-between; /* ✅ Distribuye en los extremos */
-    align-items: center; /* ✅ Asegura alineación vertical */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    padding: 10px 20px; /* 🔹 Ajusta el espacio alrededor */
+    padding: 10px 20px;
 }
 
 .footer-copy {

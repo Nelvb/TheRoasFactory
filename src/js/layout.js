@@ -29,7 +29,6 @@ const NavbarController = ({ setIsNavbarVisible }) => {
 };
 
 const Layout = () => {
-    console.log("⚡ Layout se está renderizando!");
     const basename = process.env.PUBLIC_URL || "";
     
 

@@ -12,7 +12,7 @@
     z-index: 1000;
 }
 
-/* 🔥 Solo el logo y los links desaparecen (No afecta el botón hamburguesa) */
+/* Solo el logo y los links desaparecen (No afecta el botón hamburguesa) */
 .navbar.hidden .navbar-brand,
 .navbar.hidden .desktop-menu {
     opacity: 0;
@@ -56,7 +56,7 @@
     border: none;
     cursor: pointer;
     position: fixed;
-    /* 🔥 Se mantiene fijo */
+    /* Se mantiene fijo */
     top: 15px;
     right: 15px;
     z-index: 1101;
@@ -71,10 +71,10 @@
 
     display: flex;
     align-items: center;
-    /* 🔥 Centra el ícono */
+    /* Centra el ícono */
     justify-content: center;
     line-height: 1;
-    /* 🔥 Asegura que no se mueva */
+    /* Asegura que no se mueva */
 }
 
 /* Menú desplegable en móviles */
@@ -95,7 +95,7 @@
     z-index: 1000;
 }
 
-/* Mostrar menú cuando está abierto */
+/* Muestra menú cuando está abierto */
 .mobile-menu.open {
     transform: translateX(0);
 }
@@ -144,7 +144,7 @@
         transition: top 0.3s ease-in-out;
     }
 
-    /* 🔥 El botón hamburguesa se mantiene, pero la navbar desaparece */
+    /* El botón hamburguesa se mantiene, pero la navbar desaparece */
     .navbar.hidden .navbar-brand,
     .navbar.hidden .desktop-menu {
         opacity: 0;

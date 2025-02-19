@@ -191,9 +191,9 @@ p {
 @media (max-width: 768px) {
     .content {
         padding: 30px;
-        /* Reducir el padding en pantallas pequeñas */
+        /* Reduce el padding en pantallas pequeñas */
         max-width: 100%;
-        /* Ocupar todo el ancho disponible */
+        /* Ocupa todo el ancho disponible */
         margin: 160px auto;
         margin-bottom: 50px;
     }

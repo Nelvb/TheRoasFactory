@@ -75,7 +75,7 @@
 .slider-controls {
     position: relative;
     display: flex;
-    justify-content: center; /* Centra todo en la línea */
+    justify-content: center;
     align-items: center;
     width: 100%;
     max-width: 1100px;
@@ -84,10 +84,10 @@
     padding-bottom: 40px;
 }
 
-/* 🔹 Flechas (Ahora ya no están en los extremos) */
+/* Flechas */
 .slider-controls .prev,
 .slider-controls .next {
-    position: relative; /* Quitamos el absolute */
+    position: relative;
 }
 
 
@@ -116,7 +116,7 @@
 }
 
 
-/* 🔹 Dots de navegación */
+/* Dots de navegación */
 .slider-dots {
     display: flex;
     justify-content: center;
@@ -145,7 +145,6 @@
 }
 
 @media (max-width: 1024px) {
-    /* Ajustar el slider para ocupar el 100% del ancho */
     .values-section {
         width: 100%;
         max-width: 100%;

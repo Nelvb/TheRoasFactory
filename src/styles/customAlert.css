@@ -42,6 +42,6 @@
 
 .custom-alert button:hover {
     background-color: #9e9e9e;
-    transform: scale(1.05); /* Crece un 5% al pasar el ratón */
+    transform: scale(1.05);
     opacity: 0.9;
 }
