@@ -1,15 +1,24 @@
-//import react into the bundle
-import React from 'react'
-import {createRoot} from 'react-dom/client'
+// Importar React y ReactDOM
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-//include your index.scss file into the bundle
+// Incluir los estilos
 import "../styles/index.css";
 
-//import your own components
-import Layout from './layout.js'
+// Importar el componente principal de la aplicación
+import Layout from './layout.js';
 
-//
-const root = createRoot(document.querySelector("#app"))
+// Verificar si el elemento con id "app" existe
+const appElement = document.getElementById("app");
 
-//render your react application
-root.render(<Layout/>)
+if (appElement) {
+    console.log("✅ Se encontró el elemento con id 'app'. Montando React...");
+    const root = ReactDOM.createRoot(appElement);
+    root.render(
+        <React.StrictMode>
+            <Layout />
+        </React.StrictMode>
+    );
+} else {
+    console.error("❌ No se encontró el elemento con id 'app'. Revisa index.html");
+}
