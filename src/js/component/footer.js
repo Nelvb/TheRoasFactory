@@ -40,7 +40,7 @@ export const Footer = () => {
         <footer className={`footer ${isVisible ? "visible" : ""}`}>
             <div className="footer-container">
                 <a href="/" className="footer-logo">
-                    <img src="https://res.cloudinary.com/dgyz3ge7g/image/upload/v1739401895/vemixvhw5xkd6ounjuck.png"
+                    <img src="https://res.cloudinary.com/dgyz3ge7g/image/upload/v1740064796/u9rilsbvctdr7krwdfad.webp"
                         alt="The Roas Factory"
                     />
                 </a>

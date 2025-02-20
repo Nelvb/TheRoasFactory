@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../img/Logo_sin_fondo.png";
+import logo from "../../img/Logo_sin_fondo.webp";
 import "../../styles/navbar.css";
 
 export const Navbar = ({ isVisible }) => {

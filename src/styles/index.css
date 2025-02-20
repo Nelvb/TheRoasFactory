@@ -182,11 +182,9 @@ p {
     transform: translateY(0);
 }
 
-
-
-
-
-
+html {
+    scroll-behavior: smooth;
+}
 
 @media (max-width: 768px) {
     .content {
