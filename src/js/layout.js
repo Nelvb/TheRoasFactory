@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./component/scrollToTop";
 import ScrollAnimationWrapper from "./component/scrollAnimationWrapper";
 
@@ -35,6 +36,7 @@ const Layout = () => {
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
     return (
+        <HelmetProvider>
         <BrowserRouter basename={basename} future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
             <div className="app-container">
                 <NavbarController setIsNavbarVisible={setIsNavbarVisible} />
@@ -58,6 +60,7 @@ const Layout = () => {
 
             <Footer />
         </BrowserRouter>
+         </HelmetProvider>
     );
 };
 

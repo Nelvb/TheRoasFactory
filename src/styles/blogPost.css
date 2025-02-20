@@ -1,0 +1,78 @@
+.blog-article .blog-content {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.blog-article {
+    position: relative;
+    z-index: 1;
+    margin-top: 120px;
+    text-align: center;
+    padding: 20px;
+}
+
+.blog-image-full {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.blog-image-full.fade-in {
+    opacity: 1;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: rgb(160, 210, 212);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.back-button:hover {
+    background-color: rgb(233, 121, 124);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Estilo para el contenedor de carga */
+.loading-container {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+
+@media (max-width: 768px) {
+    .blog-article {
+        margin-bottom: 80px;
+    }
+
+    .blog-article .blog-content {
+        text-align: justify;
+        text-justify: inter-word;
+        word-spacing: -1px;
+        hyphens: auto;
+        letter-spacing: -0.5px;
+    }
+
+    .blog-article h2 {
+        text-align: left;
+        hyphens: none;
+        word-break: break-word; /* Permite que la palabra pase a la siguiente línea sin cortarla */
+        overflow-wrap: break-word; /* Evita desbordamientos */
+    }    
+}

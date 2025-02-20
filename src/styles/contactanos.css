@@ -95,9 +95,7 @@
 .contact-options {
     margin-bottom: 60px;
     text-align: center;
-    padding-left: 15px;
-    padding-right: 15px;
-
+    padding: 0 15px; 
 }
 
     .btn-whatsapp {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import "../../styles/servicios.css";
 import useNavbarScroll from "../../js/component/useNavbarScroll";
 

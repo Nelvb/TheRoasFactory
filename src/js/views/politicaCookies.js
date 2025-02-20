@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import "../../styles/politicaCookies.css";
 import useNavbarScroll from "../../js/component/useNavbarScroll";
 

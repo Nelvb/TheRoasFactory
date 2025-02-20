@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import "../../styles/blog.css";
+import { Helmet } from "react-helmet-async";
+import "../../styles/blogPost.css";
 import useNavbarScroll from "../../js/component/useNavbarScroll";
 
 export const BlogPost = ({ onScroll }) => {
@@ -40,13 +40,24 @@ export const BlogPost = ({ onScroll }) => {
     fetchPost();
   }, [slug, onScroll]);
 
-  // Manejar la carga de la imagen
-  const handleImageLoad = () => {
-    const imageElement = document.querySelector(".blog-image-full");
-    if (imageElement) {
-      imageElement.classList.add("fade-in");
-    }
-  };
+ // Manejar la carga de la imagen
+const handleImageLoad = () => {
+  setTimeout(() => {
+      const imageElement = document.querySelector(".blog-image-full");
+      if (imageElement) {
+          imageElement.classList.add("fade-in");
+      }
+  }, 100);
+};
+
+// Aplicar la animación si la imagen ya estaba en caché
+useEffect(() => {
+  const imageElement = document.querySelector(".blog-image-full");
+  if (imageElement && imageElement.complete) {
+      handleImageLoad();
+  }
+}, [post]);
+
 
   // Manejar la carga del título
   useEffect(() => {
@@ -68,7 +79,7 @@ export const BlogPost = ({ onScroll }) => {
     }
   }, [post]);
 
-  // Mantener lógica original de onScroll con navbar
+  // Mantener lógica de onScroll con navbar
   useEffect(() => {
     const checkRefReady = setInterval(() => {
       if (blogPostRef.current) {

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import "../../styles/agencia.css";
 import useNavbarScroll from "../../js/component/useNavbarScroll";
 import { ValueSlider } from "../component/valueSlider";

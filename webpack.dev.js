@@ -4,19 +4,25 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 const port = 3000;
-let publicUrl = `ws://localhost:${port}/ws`;
 
-console.log('BASENAME:', process.env.BASENAME); // Este es el log
+// Configurar WebSocket según el entorno
+let webSocketOptions = false; // Por defecto, desactivado
 
-//only for gitpod
+console.log('BASENAME:', process.env.BASENAME);
+
+// Solo para Gitpod
 if (process.env.GITPOD_WORKSPACE_URL) {
   const [schema, host] = process.env.GITPOD_WORKSPACE_URL.split('://');
-  publicUrl = `wss://${port}-${host}/ws`;
+  webSocketOptions = {
+    protocol: 'wss',
+    hostname: `${port}-${host}`,
+    pathname: '/ws',
+  };
 }
 
-//only for codespaces
+// Solo para Codespaces - Desactiva WebSocket por completo
 if (process.env.CODESPACE_NAME) {
-  publicUrl = `wss://${process.env.CODESPACE_NAME}-${port}.preview.app.github.dev/ws`;
+  webSocketOptions = false;
 }
 
 module.exports = merge(common, {
@@ -27,15 +33,12 @@ module.exports = merge(common, {
     hot: true,
     allowedHosts: "all",
     historyApiFallback: true,
+    client: webSocketOptions ? { webSocketURL: webSocketOptions } : false, // Aplica la configuración solo si es válida
     static: [
-      {
-        directory: path.resolve(__dirname, "dist"),
-      },
-      {
-        directory: path.resolve(__dirname, "public"),
-      }
+      { directory: path.resolve(__dirname, "dist") },
+      { directory: path.resolve(__dirname, "public") }
     ],
-    open: true, // Esto abrirá el navegador automáticamente
+    open: false, // No abrir automáticamente el navegador
   },
   plugins: []
 });

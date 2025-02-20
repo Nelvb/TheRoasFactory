@@ -44,12 +44,6 @@
     padding-bottom: 15px;
 }
 
-.blog-article .blog-content {
-    text-align: justify;
-    text-justify: inter-word;
-}
-
-
 .blog-image {
     width: 100%;
     height: auto;
@@ -59,13 +53,6 @@
 .content-container {
     flex-grow: 1;
     /* Esto permite que la parte de contenido ocupe el espacio disponible */
-}
-
-.blog-image-full {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    margin-bottom: 20px;
 }
 
 
@@ -89,14 +76,6 @@
     text-justify: inter-word;
 }
 
-.blog-article {
-    position: relative;
-    z-index: 1;
-    margin-top: 120px;
-    text-align: center;
-    padding: 20px;
-}
-
 .read-more {
     display: inline-block;
     background-color: rgb(160, 210, 212);
@@ -116,37 +95,6 @@
     transform: scale(1.1);
 }
 
-.back-button {
-    display: inline-block;
-    background-color: rgb(160, 210, 212);
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.3s ease-in-out;
-    margin-top: 40px;
-    text-align: center;
-}
-
-.back-button:hover {
-    background-color: rgb(233, 121, 124);
-    color: white;
-    transform: scale(1.1);
-}
-
-/* Estilo para el contenedor de carga */
-.loading-container {
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #fff;
-}
-
 /* Definir la animación fade-in */
 @keyframes fadeIn {
     to {
@@ -158,17 +106,10 @@
     font-size: 1.5rem;
 }
 
-
 @media (max-width: 768px) {
     .blog-container {
         grid-template-columns: 1fr;
         /* Una columna en pantallas pequeñas */
         margin-bottom: 80px;
-
     }
-
-    .blog-article {
-        margin-bottom: 80px;
-    }
-
 }
