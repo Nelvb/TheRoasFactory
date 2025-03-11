@@ -1,3 +1,6 @@
+// Este componente aplica animaciones de entrada a elementos visibles al desplazarse.
+
+
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
